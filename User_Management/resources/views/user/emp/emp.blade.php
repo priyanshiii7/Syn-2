@@ -91,6 +91,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employee</title>
   <!-- Font Awesome Icons -->
+   <link rel="stylesheet" href="{{ asset(path: 'css/studymate.css') }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{asset('css/emp.css')}}">

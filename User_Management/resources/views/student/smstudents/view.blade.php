@@ -9,7 +9,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/smstudents.css') }}">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
+       <link rel="stylesheet" href="{{ asset(path: 'css/studymate.css') }}">
+
+<style>
     .page-header {
       background-color: rgba(0, 0, 0, 0);
       /* padding: 20px 30px; */
