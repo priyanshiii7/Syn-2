@@ -9,10 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use MongoDB\BSON\ObjectId;
 use Illuminate\Support\Facades\Log;
-
 use App\Http\Controllers\Controller;
-
-
 
 /**
  * CalendarController - Manages academic calendar events
@@ -20,7 +17,7 @@ use App\Http\Controllers\Controller;
  */
 class CalendarController extends Controller
 {
-  /**
+    /**
      * Display the calendar page with holidays and tests
      * Fetches session-specific events and formats them for calendar display
      * @return \Illuminate\View\View
@@ -35,8 +32,12 @@ class CalendarController extends Controller
             $holidays = Holiday::when($currentSession, function($query) use ($currentSession) {
                 return $query->where('session_id', $currentSession);
             })
+            ->whereNotNull('date')
             ->orderBy('date', 'asc')
             ->get()
+            ->filter(function($holiday) {
+                return $holiday->date !== null;
+            })
             ->map(function($holiday) {
                 return [
                     'id' => (string) $holiday->_id,
@@ -51,19 +52,24 @@ class CalendarController extends Controller
             $tests = Test::when($currentSession, function($query) use ($currentSession) {
                 return $query->where('session_id', $currentSession);
             })
+            ->whereNotNull('date')
             ->orderBy('date', 'asc')
             ->get()
+            ->filter(function($test) {
+                return $test->date !== null;
+            })
             ->map(function($test) {
                 return [
                     'id' => (string) $test->_id,
                     'date' => $test->date->format('Y-m-d'),
-                    'description' => $test->description,
-                    'test_name' => $test->test_name ?? $test->description,
+                    'description' => $test->description ?? 'No description',
+                    'test_name' => $test->test_name ?? $test->description ?? 'Untitled Test',
                     'formatted_date' => $test->date->format('d M Y')
                 ];
-            });
+            })
+            ->values();
             
-return view('Master.calendar.calendar', compact('holidays', 'tests'));
+            return view('Master.calendar.calendar', compact('holidays', 'tests'));
             
         } catch (\Exception $e) {
             Log::error('Calendar Index Error: ' . $e->getMessage());
@@ -72,7 +78,6 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
         }
     }
 
-    
     /**
      * Store a new holiday in the database
      * Validates input, checks for duplicates, and creates holiday record
@@ -81,7 +86,6 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
      */
     public function storeHoliday(Request $request)
     {
-        // Validate input
         $validator = Validator::make($request->all(), [
             'date' => 'required|date',
             'description' => 'required|string|max:255',
@@ -97,11 +101,11 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
         }
 
         try {
-            $date = Carbon::parse($request->date);
+            $date = Carbon::parse($request->date)->startOfDay();
             $sessionId = $request->session_id ?? session('current_session_id');
             
             // Check if holiday already exists for this date and session
-            $exists = Holiday::where('date', $date)
+            $exists = Holiday::whereDate('date', $date)
                            ->when($sessionId, function($query) use ($sessionId) {
                                return $query->where('session_id', $sessionId);
                            })
@@ -146,14 +150,12 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
 
     /**
      * Delete a holiday
-     * 
      * @param string $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function deleteHoliday($id)
     {
         try {
-            // Find holiday by ID (handles both string and ObjectId)
             $holiday = Holiday::where('_id', $id)->first();
             
             if (!$holiday) {
@@ -163,7 +165,6 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
                 ], 404);
             }
 
-            // Delete holiday
             $holiday->delete();
 
             return response()->json([
@@ -181,7 +182,7 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
         }
     }
 
-     /**
+    /**
      * Store a new test in the database
      * Validates test data and creates test record with optional time/marks fields
      * @param Request $request - Contains test details (date, name, time, marks)
@@ -189,7 +190,6 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
      */
     public function storeTest(Request $request)
     {
-        // Validate input
         $validator = Validator::make($request->all(), [
             'date' => 'required|date',
             'description' => 'required|string|max:255',
@@ -213,10 +213,9 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
         }
 
         try {
-            $date = Carbon::parse($request->date);
+            $date = Carbon::parse($request->date)->startOfDay();
             $sessionId = $request->session_id ?? session('current_session_id');
             
-            // Prepare test data
             $testData = [
                 'date' => $date,
                 'description' => $request->description,
@@ -226,7 +225,6 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
                 'status' => $request->status ?? 'scheduled'
             ];
 
-            // Add optional time fields
             if ($request->start_time) {
                 $testData['start_time'] = Carbon::parse($request->date . ' ' . $request->start_time);
             }
@@ -234,7 +232,6 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
                 $testData['end_time'] = Carbon::parse($request->date . ' ' . $request->end_time);
             }
             
-            // Add optional numeric fields
             if ($request->duration) {
                 $testData['duration'] = (int) $request->duration;
             }
@@ -245,7 +242,6 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
                 $testData['passing_marks'] = (int) $request->passing_marks;
             }
 
-            // Create test
             $test = Test::create($testData);
 
             return response()->json([
@@ -274,14 +270,12 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
 
     /**
      * Delete a test
-     * 
      * @param string $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function deleteTest($id)
     {
         try {
-            // Find test by ID (handles both string and ObjectId)
             $test = Test::where('_id', $id)->first();
             
             if (!$test) {
@@ -291,7 +285,6 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
                 ], 404);
             }
 
-            // Delete test
             $test->delete();
 
             return response()->json([
@@ -310,99 +303,110 @@ return view('Master.calendar.calendar', compact('holidays', 'tests'));
     }
 
     /**
- * Mark all Sundays in a month as holidays
- * 
- * @param Request $request
- * @return \Illuminate\Http\JsonResponse
- */
-public function markSundays(Request $request)
-{
-    // Validate input
-    $validator = Validator::make($request->all(), [
-        'year' => 'required|integer|min:2020|max:2100',
-        'month' => 'required|integer|min:1|max:12',
-        'session_id' => 'nullable|string'
-    ]);
+     * Mark all Sundays in a month as holidays
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function markSundays(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'year' => 'required|integer|min:2020|max:2100',
+            'month' => 'required|integer|min:1|max:12',
+            'session_id' => 'nullable|string'
+        ]);
 
-    if ($validator->fails()) {
-        return response()->json([
-            'success' => false,
-            'message' => 'Validation failed',
-            'errors' => $validator->errors()
-        ], 422);
-    }
-
-    try {
-        $year = $request->year;
-        $month = $request->month;
-        $sessionId = $request->session_id ?? session('current_session_id');
-
-        // Get all Sundays in the month
-        $sundays = [];
-        $sundayIds = [];
-        $startDate = Carbon::create($year, $month, 1);
-        $endDate = $startDate->copy()->endOfMonth();
-
-        // Loop through each day in the month
-        for ($date = $startDate->copy(); $date <= $endDate; $date->addDay()) {
-            if ($date->isSunday()) {
-                // Check if holiday already exists for this Sunday
-                $exists = Holiday::where('date', $date->copy()->startOfDay())
-                               ->when($sessionId, function($query) use ($sessionId) {
-                                   return $query->where('session_id', $sessionId);
-                               })
-                               ->first();
-                
-                if (!$exists) {
-                    // Create Sunday holiday
-                    $holiday = Holiday::create([
-                        'date' => $date->copy()->startOfDay(),
-                        'description' => 'Sunday Holiday',
-                        'type' => 'sunday',
-                        'session_id' => $sessionId
-                    ]);
-                    
-                    $sundayData = [
-                        'id' => (string) $holiday->_id,
-                        'date' => $holiday->date->format('Y-m-d'),
-                        'description' => $holiday->description,
-                        'type' => $holiday->type,
-                        'formatted_date' => $holiday->date->format('d M Y')
-                    ];
-                    
-                    $sundays[] = $sundayData;
-                    $sundayIds[$holiday->date->format('Y-m-d')] = (string) $holiday->_id;
-                } else {
-                    // Sunday already exists, just add its ID to the map
-                    $sundayIds[$date->format('Y-m-d')] = (string) $exists->_id;
-                }
-            }
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation failed',
+                'errors' => $validator->errors()
+            ], 422);
         }
 
-        $message = count($sundays) > 0 
-            ? count($sundays) . ' Sunday(s) marked as holidays'
-            : 'All Sundays are already marked as holidays';
+        try {
+            $year = $request->year;
+            $month = $request->month;
+            $sessionId = $request->session_id ?? session('current_session_id');
 
-        return response()->json([
-            'success' => true,
-            'message' => $message,
-            'data' => $sundays,
-            'ids' => $sundayIds
-        ], count($sundays) > 0 ? 201 : 200);
-        
-    } catch (\Exception $e) {
-        Log::error('Mark Sundays Error: ' . $e->getMessage());
-        return response()->json([
-            'success' => false,
-            'message' => 'Failed to mark Sundays',
-            'error' => $e->getMessage()
-        ], 500);
+            $sundays = [];
+            $sundayIds = [];
+            
+            // Create start and end dates for the month
+            $startDate = Carbon::create($year, $month, 1)->startOfDay();
+            $endDate = $startDate->copy()->endOfMonth();
+
+            // Find first Sunday of the month
+            $currentDate = $startDate->copy();
+            
+            // Move to first Sunday (0 = Sunday in Carbon)
+            while ($currentDate->dayOfWeek !== Carbon::SUNDAY) {
+                $currentDate->addDay();
+            }
+
+            // Loop through all Sundays in the month
+            while ($currentDate <= $endDate) {
+                if ($currentDate->isSunday()) {
+                    $dateToCheck = $currentDate->copy()->startOfDay();
+                    
+                    // Check if holiday already exists for this Sunday
+                    $exists = Holiday::whereDate('date', $dateToCheck)
+                                   ->when($sessionId, function($query) use ($sessionId) {
+                                       return $query->where('session_id', $sessionId);
+                                   })
+                                   ->first();
+                    
+                    if (!$exists) {
+                        // Create Sunday holiday
+                        $holiday = Holiday::create([
+                            'date' => $dateToCheck,
+                            'description' => 'Sunday Holiday',
+                            'type' => 'sunday',
+                            'session_id' => $sessionId
+                        ]);
+                        
+                        $sundayData = [
+                            'id' => (string) $holiday->_id,
+                            'date' => $holiday->date->format('Y-m-d'),
+                            'description' => $holiday->description,
+                            'type' => $holiday->type,
+                            'formatted_date' => $holiday->date->format('d M Y'),
+                            'day_name' => $holiday->date->format('l')
+                        ];
+                        
+                        $sundays[] = $sundayData;
+                        $sundayIds[$holiday->date->format('Y-m-d')] = (string) $holiday->_id;
+                    } else {
+                        $sundayIds[$dateToCheck->format('Y-m-d')] = (string) $exists->_id;
+                    }
+                }
+                
+                // Move to next Sunday (add 7 days)
+                $currentDate->addWeek();
+            }
+
+            $message = count($sundays) > 0 
+                ? count($sundays) . ' Sunday(s) marked as holidays'
+                : 'All Sundays are already marked as holidays';
+
+            return response()->json([
+                'success' => true,
+                'message' => $message,
+                'data' => $sundays,
+                'ids' => $sundayIds
+            ], count($sundays) > 0 ? 201 : 200);
+            
+        } catch (\Exception $e) {
+            Log::error('Mark Sundays Error: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to mark Sundays',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
-}
 
     /**
      * Get all events (holidays and tests) for calendar
-     * 
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -415,13 +419,18 @@ public function markSundays(Request $request)
             $holidays = Holiday::when($sessionId, function($query) use ($sessionId) {
                 return $query->where('session_id', $sessionId);
             })
+            ->whereNotNull('date')
             ->get()
+            ->filter(function($holiday) {
+                return $holiday->date !== null;
+            })
             ->map(function($holiday) {
                 return [
-                    'id' => 'holiday-' . (string) $holiday->_id,
+                    'id' => (string) $holiday->_id,
                     'title' => $holiday->description,
                     'start' => $holiday->date->format('Y-m-d'),
                     'allDay' => true,
+                    'type' => 'holiday',
                     'className' => $holiday->type === 'sunday' ? 'fc-event-sunday' : 'fc-event-holiday',
                     'backgroundColor' => $holiday->type === 'sunday' ? '#ffc107' : '#dc3545',
                     'borderColor' => $holiday->type === 'sunday' ? '#ffc107' : '#dc3545',
@@ -437,13 +446,18 @@ public function markSundays(Request $request)
             $tests = Test::when($sessionId, function($query) use ($sessionId) {
                 return $query->where('session_id', $sessionId);
             })
+            ->whereNotNull('date')
             ->get()
+            ->filter(function($test) {
+                return $test->date !== null;
+            })
             ->map(function($test) {
                 return [
-                    'id' => 'test-' . (string) $test->_id,
-                    'title' => $test->description,
+                    'id' => (string) $test->_id,
+                    'title' => $test->test_name ?? $test->description,
                     'start' => $test->date->format('Y-m-d'),
                     'allDay' => true,
+                    'type' => 'test',
                     'className' => 'fc-event-test',
                     'backgroundColor' => '#007bff',
                     'borderColor' => '#007bff',
@@ -477,7 +491,6 @@ public function markSundays(Request $request)
 
     /**
      * Update a holiday
-     * 
      * @param Request $request
      * @param string $id
      * @return \Illuminate\Http\JsonResponse
@@ -507,7 +520,7 @@ public function markSundays(Request $request)
             }
 
             $holiday->update([
-                'date' => Carbon::parse($request->date),
+                'date' => Carbon::parse($request->date)->startOfDay(),
                 'description' => $request->description
             ]);
 
@@ -533,7 +546,6 @@ public function markSundays(Request $request)
 
     /**
      * Update a test
-     * 
      * @param Request $request
      * @param string $id
      * @return \Illuminate\Http\JsonResponse
@@ -563,7 +575,7 @@ public function markSundays(Request $request)
             }
 
             $test->update([
-                'date' => Carbon::parse($request->date),
+                'date' => Carbon::parse($request->date)->startOfDay(),
                 'description' => $request->description
             ]);
 
