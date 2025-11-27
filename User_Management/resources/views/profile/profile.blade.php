@@ -10,7 +10,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{asset('css/emp.css')}}">
-  
+       <link rel="stylesheet" href="{{ asset(path: 'css/studymate.css') }}">
+
   <style>
     /* Profile-specific styles that extend emp.css */
     .profile-container {

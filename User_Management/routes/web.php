@@ -355,73 +355,12 @@ Route::prefix('attendance/student')->name('attendance.student.')->group(function
         ->name('export');
 });
 
-
-// In routes/web.php
-Route::prefix('test-series')->name('test_series.')->group(function () {
-    // Main index page (Test Master - Image 1)
-    Route::get('/', [TestSeriesController::class, 'index'])->name('index');
-
-    Route::get('/create', [TestSeriesController::class, 'create'])->name('create');
-    Route::post('/', [TestSeriesController::class, 'store'])->name('store');
-    Route::get('/{course}', [TestSeriesController::class, 'show'])->name('show');
-    Route::get('/{id}/edit', [TestSeriesController::class, 'edit'])->name('edit');
-
-    
-    // Course specific test series page (Image 2)
-    Route::get('/course/{courseName}', [TestSeriesController::class, 'show'])->name('show');
-    
-    // Create new test series (Image 3 modal)
-    Route::post('/', [TestSeriesController::class, 'store'])->name('store');
-    
-    // Get test data for edit modal (Image 4)
-    Route::get('/{id}/edit', [TestSeriesController::class, 'edit'])->name('edit');
-    
-    // Update test series (Image 4 modal submit)
-
-    Route::put('/{id}', [TestSeriesController::class, 'update'])->name('update');
-    
-    // View enrolled students (Image 5)
-    Route::get('/{id}/students', [TestSeriesController::class, 'viewStudents'])->name('view_students');
-    
-    // Delete test series
-    Route::delete('/{id}', [TestSeriesController::class, 'destroy'])->name('destroy');
-    
-    // For viewing test details
-    Route::get('/view/{id}', [TestSeriesController::class, 'viewTest'])->name('viewTest');
-    // AJAX endpoint - Get course subjects
-    Route::get('/course/{courseId}/subjects', [TestSeriesController::class, 'getCourseSubjects'])->name('course_subjects');
-    
-    // Syllabus Management Routes
-    Route::post('/{id}/upload-syllabus', [TestSeriesController::class, 'uploadSyllabus'])->name('upload_syllabus');
-    Route::get('/{id}/download-syllabus', [TestSeriesController::class, 'downloadSyllabus'])->name('download_syllabus');
-    Route::delete('/{id}/delete-syllabus', [TestSeriesController::class, 'deleteSyllabus'])->name('delete_syllabus');
-    
-    // Result Management Routes
-    Route::post('/upload-result/{id}', [TestSeriesController::class, 'uploadResult'])->name('upload_result');
-    Route::post('/lock-result/{id}', [TestSeriesController::class, 'lockResult'])->name('lock_result');
-    Route::get('/generate-template/{id}', [TestSeriesController::class, 'generateResultTemplate'])->name('generate_template');
-
-    Route::post('/{testSeriesId}/tests', [TestSeriesController::class, 'storeTest'])->name('store_test');
-    Route::put('/tests/{testId}', [TestSeriesController::class, 'updateTest'])->name('update_test');
-    Route::delete('/tests/{testId}', [TestSeriesController::class, 'destroy_test'])->name('destroy_test');
-    
-    Route::get('/course/{courseId}/batches', [TestSeriesController::class, 'getCourseBatches'])
-        ->name('course_batches');
-
-     Route::post('/{testSeriesId}/tests/multiple', [TestSeriesController::class, 'storeMultipleTests'])
-        ->name('store_multiple_tests');
-    });
-    
-
 /*
 |--------------------------------------------------------------------------
 | Units Routes
 |--------------------------------------------------------------------------
-<<<<<<< HEAD
-=======
 |
 |
->>>>>>> 25ebacb57ae821fb9249969068d766e6e5144c4e
 */
 
 Route::prefix('study_material')->group(function () {
@@ -492,12 +431,6 @@ Route::prefix('reports')->name('reports.')->group(function () {
 
 Route::get('/reports/attendance/student/rolls', [AttendanceReportController::class, 'getRollsByBatch'])
     ->name('reports.attendance.student.rolls');
-Route::prefix('study_material/dispatch')->group(function () {
-    Route::get('/', [DispatchController::class, 'index']);
-    Route::get('/get-batches', [DispatchController::class, 'getBatches']);
-    Route::get('/get-students', [DispatchController::class, 'getStudents']);
-    Route::post('/dispatch-material', [DispatchController::class, 'dispatchMaterial']);
-});
 
 /*
 |--------------------------------------------------------------------------

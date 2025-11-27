@@ -69,6 +69,8 @@ LINE 629-665: AJAX Script for Dynamic User Addition
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Batches</title>
+       <link rel="stylesheet" href="{{ asset(path: 'css/studymate.css') }}">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
   <link rel="stylesheet" href="{{asset('css/batchesa.css')}}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
