@@ -278,14 +278,13 @@
 }
 
 #table thead th {
-    background-color: transparent !important;
+    color: #1B3A0F !important;
     border: none !important;
-    border-bottom: 2px solid #e0e0e0 !important;
-    color: rgb(224, 83, 1) !important;
-    font-weight: 600 !important;
-    padding: 12px 10px !important;
-    font-size: 13px !important;
-    text-align: left !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    padding: 16px 12px !important;
 }
 
 #table tbody td {
@@ -1055,10 +1054,14 @@ table .btn-secondary:hover {
     background-color: var(--broccoli-green) !important;
 }
 
-/* === Table header === */
 #table thead th {
-    color: var(--broccoli-dark) !important;
-    border-bottom: 2px solid var(--broccoli-green) !important;
+    color: #1B3A0F !important;
+    border: none !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    padding: 16px 12px !important;
 }
 
 /* === Pagination === */
