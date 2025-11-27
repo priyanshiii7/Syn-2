@@ -188,24 +188,6 @@
     </div>
   </div>
 
-  <!-- Test Series Management -->
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight"
-        id="accordion-button">
-        <i class="fa-solid fa-chart-column" id="side-icon"></i> Test Series Management
-      </button>
-    </h2>
-    <div id="flush-collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="{{ route('test_series.index') }}"><i class="fa-solid fa-user" id="side-icon"></i>Test Master</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
   <!-- Reports -->
   <div class="accordion-item">
     <h2 class="accordion-header">
