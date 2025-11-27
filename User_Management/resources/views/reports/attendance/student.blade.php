@@ -396,7 +396,7 @@
 <body>
   <div class="header">
     <div class="logo">
-      <img src="{{asset('images/logo.png.jpg')}}" class="img">
+      <img src="{{asset('images/login.png')}}" class="img">
       <button class="toggleBtn" id="toggleBtn"><i class="fa-solid fa-bars"></i></button>
     </div>
     <div class="pfp">
@@ -577,7 +577,7 @@
             <div class="accordion-body">
               <ul class="menu" id="dropdown-body">
                 <li>
-    <a href="{{ route('test_series.index') }}">
+    <a href=" ">
         <i class="icon-class"></i> 
         <span>Test Master</span>
     </a>
