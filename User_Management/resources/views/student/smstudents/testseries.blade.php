@@ -347,7 +347,7 @@
 
   <div class="header">
     <div class="logo">
-      <img src="{{ asset('images/logo.png.jpg') }}" class="img">
+      <img src="{{ asset('images/login.png') }}" class="img">
       <button class="toggleBtn" id="toggleBtn"><i class="fa-solid fa-bars"></i></button>
     </div>
     <div class="pfp">
@@ -552,7 +552,7 @@
     <div id="flush-collapseNine" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="#"><i class="fa-solid fa-user" id="side-icon"></i>Statistics</a></li>
+          <li><a class="item" href="{{ route('reports.walkin.index') }}"><i class="fa-solid fa-user" id="side-icon"></i>Statistics</a></li>
           <!-- <li><a class="item" href="#"><i class="fa-solid fa-calendar-days" id="side-icon"></i> Attendance</a></li>
           <li><a class="item" href="#"><i class="fa-solid fa-file" id="side-icon"></i>Test Series</a></li>
           <li><a class="item" href="{{ route('inquiries.index') }}"><i class="fa-solid fa-file" id="side-icon"></i>Inquiry History</a></li>
@@ -816,13 +816,13 @@
               <div class="report-card" id="board-pattern-content">
                 <div class="report-header">
                   <div class="logo-section">
-                    <img src="{{ asset('images/logo.png.jpg') }}" alt="Logo" class="institute-logo">
+                    <img src="{{ asset('images/login.png') }}" alt="Logo" class="institute-logo">
                   </div>
                   <div class="institute-name">
-                    <img src="{{ asset('images/synthesis-logo.png') }}" alt="Synthesis" style="max-width: 500px;">
+                    <img src="{{ asset('images/synthesis-login.png') }}" alt="Synthesis" style="max-width: 500px;">
                   </div>
                   <div class="logo-section">
-                    <img src="{{ asset('images/logo.png.jpg') }}" alt="Logo" class="institute-logo">
+                    <img src="{{ asset('images/login.png') }}" alt="Logo" class="institute-logo">
                   </div>
                 </div>
 
@@ -921,13 +921,13 @@
               <div class="report-card" id="neet-pattern-content" style="display: none;">
                 <div class="report-header">
                   <div class="logo-section">
-                    <img src="{{ asset('images/logo.png.jpg') }}" alt="Logo" class="institute-logo">
+                    <img src="{{ asset('images/login.png') }}" alt="Logo" class="institute-logo">
                   </div>
                   <div class="institute-name">
-                    <img src="{{ asset('images/synthesis-logo.png') }}" alt="Synthesis" style="max-width: 500px;">
+                    <img src="{{ asset('images/synthesis-login.png') }}" alt="Synthesis" style="max-width: 500px;">
                   </div>
                   <div class="logo-section">
-                    <img src="{{ asset('images/logo.png.jpg') }}" alt="Logo" class="institute-logo">
+                    <img src="{{ asset('images/login.png') }}" alt="Logo" class="institute-logo">
                   </div>
                 </div>
 
@@ -1026,13 +1026,13 @@
               <div class="report-card" id="iit-pattern-content" style="display: none;">
                 <div class="report-header">
                   <div class="logo-section">
-                    <img src="{{ asset('images/logo.png.jpg') }}" alt="Logo" class="institute-logo">
+                    <img src="{{ asset('images/login.png') }}" alt="Logo" class="institute-logo">
                   </div>
                   <div class="institute-name">
-                    <img src="{{ asset('images/synthesis-logo.png') }}" alt="Synthesis" style="max-width: 500px;">
+                    <img src="{{ asset('images/synthesis-login.png') }}" alt="Synthesis" style="max-width: 500px;">
                   </div>
                   <div class="logo-section">
-                    <img src="{{ asset('images/logo.png.jpg') }}" alt="Logo" class="institute-logo">
+                    <img src="{{ asset('images/login.png') }}" alt="Logo" class="institute-logo">
                   </div>
                 </div>
 
