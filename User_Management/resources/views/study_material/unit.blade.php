@@ -21,12 +21,12 @@
   <!-- DataTables CSS -->
   <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 
-  <style>
+<style>
     .right { padding: 0 !important; }
     .container-fluid { padding: 20px !important; }
     .table-responsive { overflow-x: visible !important; overflow-y: visible !important; }
     #unitsTable { width: 100% !important; margin-bottom: 0 !important; }
-    .table thead th { background-color: #ffffff; font-weight: 600; color: #d2691e; border: none; border-bottom: 2px solid #f0f0f0; padding: 12px; font-size: 14px; }
+    .table thead th { background-color: #ffffff; font-weight: 600; color: #35a52bff; border: none; border-bottom: 2px solid #f0f0f0; padding: 12px; font-size: 14px; }
     .table tbody td { padding: 12px; vertical-align: middle; border: 1px solid #f0f0f0; }
     .table { border-collapse: separate; border-spacing: 0; }
     .table thead th:first-child { border-top-left-radius: 8px; }
@@ -34,18 +34,18 @@
     .dataTables_wrapper { overflow-x: visible !important; }
     .dataTables_scroll { overflow: visible !important; }
     .dataTables_scrollBody { overflow: visible !important; max-height: none !important; }
-    .btn-primary { background-color: #d2691e; border-color: #d2691e; }
-    .btn-primary:hover { background-color: #b8571a; border-color: #b8571a; }
+    .btn-primary { background-color: #35a52bff; border-color: #35a52bff; }
+    .btn-primary:hover { background-color: #2a8422; border-color: #2a8422; }
     .page-title { font-size: 24px; font-weight: 600; color: #333; margin-bottom: 20px; }
     .btn-group .btn { background: none; border: none; font-size: 20px; color: #666; padding: 2px 8px; }
-    .view-more-btn { background-color: #d2691e; border-color: #d2691e; color: white; }
-    .view-more-btn:hover { background-color: #b8571a; border-color: #b8571a; color: white; }
+    .view-more-btn { background-color: #35a52bff; border-color: #35a52bff; color: white; }
+    .view-more-btn:hover { background-color: #2a8422; border-color: #2a8422; color: white; }
     .card { border: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-radius: 8px; margin-bottom: 0; }
     .card-body { padding: 20px; }
     .dataTables_wrapper .row { margin: 0; }
     .dataTables_info, .dataTables_paginate { padding-top: 15px; }
-    #search-input { border: 1px solid #d2691e !important; border-radius: 4px; }
-    #search-input:focus { outline: none; border-color: #d2691e !important; box-shadow: 0 0 0 0.2rem rgba(210, 105, 30, 0.25); }
+    #search-input { border: 1px solid #35a52bff !important; border-radius: 4px; }
+    #search-input:focus { outline: none; border-color: #35a52bff !important; box-shadow: 0 0 0 0.2rem rgba(53, 165, 43, 0.25); }
     #entries-per-page { border: 1px solid #ced4da; border-radius: 4px; }
   </style>
 </head>
@@ -82,7 +82,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->

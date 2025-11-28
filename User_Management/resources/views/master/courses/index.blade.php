@@ -135,7 +135,7 @@ LINE 629-665: AJAX Script for Dynamic Session Addition
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -337,7 +337,7 @@ LINE 629-665: AJAX Script for Dynamic Session Addition
 
   <button type="button" class="btn btn-success d-flex align-items-center justify-content-center" 
           style="min-width: 140px; height: 38px;" 
-          data-bs-toggle="modal" data-bs-target="#uploadCourseModal">
+          data-bs-toggle="modal" data-bs-target="#uploadCourseModal" id="add">
     <i class="fa-solid fa-upload me-1"></i> Upload
   </button>
 </div>
@@ -379,7 +379,7 @@ LINE 629-665: AJAX Script for Dynamic Session Addition
                 placeholder="Search courses..." 
                 value="{{ request('search') }}"
             >
-            <button type="submit" class="btn btn-primary" style="background-color: #ff6600; color: white;">
+            <button type="submit" class="btn btn-primary" style="background-color: #2aa007ff; color: white; border-color: #fff;" >
     <i class="fa-solid fa-magnifying-glass"></i>
 </button>
 
@@ -755,7 +755,7 @@ LINE 629-665: AJAX Script for Dynamic Session Addition
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary" id="add">Update</button>
               </div>
             </form>
           </div>

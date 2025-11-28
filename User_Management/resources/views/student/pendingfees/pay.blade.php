@@ -252,7 +252,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -442,7 +442,7 @@
     <!-- Main Content -->
     <div class="right" id="right">
       <div class="container-fluid py-4">
-        <a href="{{ route('student.pendingfees.pending') }}" class="back-btn">
+        <a href="{{ route('student.pendingfees.pending') }}" class="back-btn" style="color: #28a745;">
           <i class="fa-solid fa-arrow-left"></i> Back
         </a>
 
@@ -465,7 +465,7 @@
 
           <!-- Billing Information -->
           <div class="view-section">
-            <h4>Billing Information</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Billing Information</h4>          
             <div class="form-row">
               <div class="form-group">
                 <label>Student Name</label>
@@ -488,7 +488,7 @@
 
           <!-- Fee Details -->
           <div class="view-section">
-            <h4 class="text-danger">Fee Details</h4>
+            <h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Fee Details</h4>
             <div class="row g-3 mb-4">
               <div class="col-md-6">
                 <label class="form-label">Total Fees (Including GST)</label>
@@ -515,7 +515,7 @@
 
           <!-- Payment Options -->
           <div class="view-section">
-            <h4>Payment Options</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Payment Options</h4>          
             
             <div class="form-group full-width mb-4">
               <label class="fw-bold mb-3">How would you like to pay? <span class="text-danger">*</span></label>
@@ -696,7 +696,7 @@
               </div>
 
               <div class="form-group full-width">
-                <button type="submit" class="btn-pay">
+                <button type="submit" class="btn-pay" style="background-color: #2d9034ff;">
                   <i class="fa-solid fa-check"></i> Pay Now
                 </button>
               </div>

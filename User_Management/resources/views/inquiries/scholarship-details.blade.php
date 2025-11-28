@@ -233,7 +233,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -428,7 +428,7 @@
           <a href="{{ route('inquiries.edit', $inquiry->_id) }}" class="back-btn">
             <i class="fa-solid fa-arrow-left"></i> Back
           </a>
-          <h3 class="page-title">Update Inquiry</h3>
+          <h3 class="page-title" id="add">Update Inquiry</h3>
         </div>
 
         @if(session('success'))

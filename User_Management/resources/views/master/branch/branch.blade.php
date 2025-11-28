@@ -136,7 +136,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -495,7 +495,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" id="submit" class="btn btn-primary">Update</button>
+                    <button type="add" id="submit" class="btn btn-primary"">Update</button>
                   </div>
                 </form>
               </div>
@@ -605,7 +605,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="add">Submit</button>
           </div>
         </form>
       </div>
@@ -682,6 +682,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
 </body>
 <!-- External JavaScript Libraries -->
 <!-- Bootstrap Bundle JS (includes Popper) -->
+ 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 <script src="{{asset('js/emp.js')}}"></script>

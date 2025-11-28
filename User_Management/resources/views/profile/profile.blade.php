@@ -173,7 +173,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -366,7 +366,7 @@
         
         <form id="profileForm" onsubmit="updateProfile(event)">
           <div class="image-upload-section">
-            <label class="image-upload-label">Update Image</label>
+            <label class="image-upload-label" id="add">Update Image</label>
             <div class="upload-box" onclick="document.getElementById('fileInput').click()">
               <i class="fa-solid fa-cloud-arrow-up"></i>
               <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="previewImage(event)">
@@ -395,7 +395,7 @@
             </div>
           </div>
 
-          <button type="submit" class="update-btn">Update Information</button>
+          <button type="submit" class="update-btn" id="add">Update Information</button>
         </form>
       </div>
     </div>

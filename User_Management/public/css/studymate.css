@@ -250,9 +250,11 @@ body::after {
 #liveToastBtn,
 #submit,
 #doneBtn,
+#saveBtn,
 #xlsx,
 .btn-orange,
 .pendingbtn,
+#saveScholarshipBtn,
 #up {
     background: var(--gradient-primary) !important;
     border: none !important;

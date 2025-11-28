@@ -148,7 +148,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -338,7 +338,7 @@
     <!-- Main Content Area -->
     <div class="right" id="right">
       <div class="container-fluid py-4">
-        <a href="{{ route('student.pendingfees.pending') }}" class="back-btn">
+        <a href="{{ route('student.pendingfees.pending') }}" class="back-btn" style="color: #28a745;">
           <i class="fa-solid fa-arrow-left"></i> Back
         </a>
 
@@ -347,7 +347,7 @@
 
         <!-- Basic Details Section -->
         <div class="view-section">
-          <h4>View Basic Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Basic Details</h4>          
           <div class="form-row">
             <div class="form-group">
               <label>Student Name</label>
@@ -406,7 +406,7 @@
 
         <!-- Address Details Section -->
         <div class="view-section">
-          <h4>Address Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Address Details</h4>          
           <div class="form-row">
             <div class="form-group">
               <label>State</label>
@@ -445,7 +445,7 @@
 
         <!-- Course Details Section -->
         <div class="view-section">
-          <h4>Course Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Course Details</h4>          
           <div class="form-row">
             <div class="form-group">
               <label>Course Type</label>
@@ -476,7 +476,7 @@
 
         <!-- Academic Details Section -->
         <div class="view-section">
-          <h4>Academic Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Academic Details</h4>          
           <div class="form-row">
             <div class="form-group">
               <label>Previous Class</label>
@@ -508,7 +508,7 @@
 
         <!-- Scholarship Details Section -->
         <div class="view-section">
-          <h4>Scholarship Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Scholarship Details</h4>          
           <div class="form-row">
             <div class="form-group">
               <label>Eligible For Scholarship</label>
@@ -535,7 +535,7 @@
 
         <!--Fees and Available Batches Details Section -->
         <div class="view-section">
-          <h4>Fees and Available Batches Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Fees and Available Batches Details</h4>          
           <div class="form-row">
             <div class="form-group full-width">
               <label>Fees Breakup</label>

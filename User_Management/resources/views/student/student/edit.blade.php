@@ -232,7 +232,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -419,11 +419,11 @@
 </div>
     </div>
 
-      </div>
+  
     <!-- Main Content Area -->
     <div class="right" id="right">
       <div class="container-fluid py-4">
-        <a href="{{ route('student.student.pending') }}" class="back-btn">
+        <a href="{{ route('student.student.pending') }}" class="back-btn" style="color: #30882aff;">
           <i class="fa-solid fa-arrow-left"></i> Back
         </a>
 
@@ -436,7 +436,7 @@
         @endif
 
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <h4 style="color: #ff6b35;">Student Onboarding</h4>
+<h4 style="color: #35a52bff;">Student Onboarding</h4>          
         </div>
 
     <form id="editStudentForm" method="POST" action="{{ route('student.student.update', $student->_id) }}" enctype="multipart/form-data">
@@ -445,7 +445,7 @@
 
       <!-- Basic Details Section -->
       <div class="form-section">
-        <h4>Basic Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Basic Details</h4>          
         <div class="form-row">
           <div class="form-group">
             <label>Student Name <span class="required">*</span></label>
@@ -572,7 +572,7 @@
 
       <!-- Address Details Section -->
       <div class="form-section">
-        <h4>Address Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Address Details</h4>          
         <div class="form-row">
           <div class="form-group">
             <label>State <span class="required">*</span></label>
@@ -670,7 +670,7 @@
 
       <!-- Course Details Section -->
       <div class="form-section">
-        <h4>Course Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Course Details</h4>          
         <div class="form-row">
           <div class="form-group">
             <label>Course Type <span class="required">*</span></label>
@@ -732,7 +732,7 @@
 
       <!-- Academic Detail Section -->
       <div class="form-section">
-        <h4>Academic Detail</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Academic Details</h4>          
         <div class="form-row">
           <div class="form-group">
             <label>Previous Class <span class="required">*</span></label>
@@ -786,7 +786,7 @@
 
       <!-- Scholarship Eligibility Section -->
       <div class="form-section">
-        <h4>Scholarship Eligibility</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Scholarship Eligibility</h4>          
         <div class="form-row">
           <div class="form-group">
             <label>Are you a Repeater From the Foundation Batch? <span class="required">*</span></label>
@@ -847,7 +847,7 @@
 
       <!-- Batch Allocation Section -->
       <div class="form-section">
-        <h4>Batch Allocation</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Batch Allocation</h4>          
         <div class="form-row">
           <div class="form-group">
             <label>Batch Name <span class="required">*</span></label>
@@ -867,7 +867,7 @@
 
       <!-- Upload Documents Section -->
       <div class="form-section">
-        <h4>Upload Documents</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Upload Documents</h4>          
         <div class="form-row">
           <!-- Passport Photo -->
           <div class="form-group">

@@ -127,7 +127,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -318,9 +318,9 @@ LINE 629-665: AJAX Script for Dynamic User Addition
       <div class="top">
         <div class="top-text">
         </div>
-               <div class="btns">
-                  <a href="{{ route('student.student.pending') }}"><button type="button" class="pendingbtn">Pending Inquiries</button></a>
-                  <a href="{{ route('student.onboard.onboard') }}"><button type="button" class="onboardbtn">Onboarding Students</button></a>
+               <div class="btns">                  
+                <a href="{{ route('student.onboard.onboard') }}"><button type="button" class="onboardbtn">Onboarding Students</button></a>
+                <a href="{{ route('student.student.pending') }}"><button type="button" class="pendingbtn">Pending Inquiries</button></a>
                 </div>
 
 

@@ -94,11 +94,11 @@
             align-items: center;
         }
 
-        .img {
-            height: 60px;
-    width: 60px;
-            margin: 4px;
-        }
+.img {
+    height: 60px;
+    width: 265px;
+    margin: 4px;
+}
 
         .main-container {
             max-width: 100%;
@@ -700,7 +700,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -896,11 +896,11 @@
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal" id="add">
                         Create Inquiry
                     </button>
-                    <button type="button" class="btn-upload" onclick="document.getElementById('fileUpload').click()">
+                    <button type="button" class="btn-upload" onclick="document.getElementById('fileUpload').click()" id="add">
                         Upload
                     </button>
                     <input type="file" id="fileUpload" style="display: none;" accept=".csv,.xlsx">
-                    <button type="button" class="btn-onboard">
+                    <button type="button" class="btn-onboard" id="add">
                         Onboard
                     </button>
                 </div>
@@ -965,7 +965,7 @@
     <div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="background-color: #35a52bff; color: #fff;">
                     <h5 class="modal-title" id="inquiryModalLabel">Create Inquiry</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
@@ -1131,7 +1131,7 @@
     <div class="modal fade" id="viewModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="background-color: #35a52bff; color: #fff;">
                     <h5 class="modal-title">Inquiry Details</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
@@ -1148,7 +1148,7 @@
 <div class="modal fade" id="historyModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header" style="background: linear-gradient(135deg, #e05301 0%, #ff7733 100%);">
+            <div class="modal-header" style="background-color: #305c1fff;">
                 <h5 class="modal-title text-white">
                     <i class="fa-solid fa-clock-rotate-left"></i> History
                 </h5>

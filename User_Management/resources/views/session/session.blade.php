@@ -136,7 +136,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -515,24 +515,24 @@ LINE 629-665: AJAX Script for Dynamic User Addition
             <div class="modal-dialog">
               <form action="{{ route('sessions.store') }}" method="POST" class="modal-content">
                 @csrf
-                <div class="modal-header">
+                <div class="modal-header" style="background-color: #35a52bff; color: #fff;">
                   <h5 class="modal-title">Create Session</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
                   <div class="mb-3">
-                    <label class="form-label">Session Name</label>
+                    <label class="form-label" style="color: #35a52bff;">Session Name</label>
                     <input type="text" name="name" class="form-control" required value="{{ old('name') }}">
                   </div>
 
                   <div class="mb-3">
-                    <label class="form-label">Start Date</label>
+                    <label class="form-label" style="color: #35a52bff;">Start Date</label>
                     <input type="date" name="start_date" class="form-control" required value="{{ old('start_date') }}">
                   </div>
 
                   <div class="mb-3">
-                    <label class="form-label">End Date</label>
+                    <label class="form-label" style="color: #35a52bff;">End Date</label>
                     <input type="date" name="end_date" class="form-control" required value="{{ old('end_date') }}">
                   </div>
 
@@ -544,7 +544,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <button type="submit" class="btn btn-primary">Create Session</button>
+                  <button type="submit" class="btn btn-primary" id="add">Create Session</button>
                 </div>
               </form>
             </div>
@@ -562,25 +562,25 @@ LINE 629-665: AJAX Script for Dynamic User Addition
             aria-labelledby="viewSessionLabel{{ $sessionId }}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="background-color: #35a52bff; color: #fff;">
                   <h5 class="modal-title" id="viewSessionLabel{{ $sessionId }}">Session Details</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                   <div class="mb-3">
-                    <label class="form-label">Session Name</label>
+                    <label class="form-label" style="color: #35a52bff;">Session Name</label>
                     <input type="text" class="form-control" value="{{ $session->name }}" readonly>
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Start Date</label>
+                    <label class="form-label" style="color: #35a52bff;">Start Date</label>
                     <input type="text" class="form-control" value="{{ $session->start_date }}" readonly>
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">End Date</label>
+                    <label class="form-label" style="color: #35a52bff;">End Date</label>
                     <input type="text" class="form-control" value="{{ $session->end_date }}" readonly>
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Status</label>
+                    <label class="form-label" style="color: #35a52bff;">Status</label>
                     <input type="text" class="form-control" value="{{ ucfirst($session->status) }}" readonly>
                   </div>
                 </div>
@@ -604,26 +604,26 @@ LINE 629-665: AJAX Script for Dynamic User Addition
                 <form method="POST" action="{{ route('sessions.update', $sessionId) }}">
                   @csrf
                   <!-- @method('PUT') -->
-                  <div class="modal-header">
+                  <div class="modal-header" style="background-color: #35a52bff; color: #fff;">
                     <h5 class="modal-title" id="editSessionLabel{{ $sessionId }}">Edit Session</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                   </div>
                   <div class="modal-body">
                     <div class="mb-3">
-                      <label class="form-label">Session Name</label>
+                      <label class="form-label" style="color: #35a52bff;">Session Name</label>
                       <input type="text" class="form-control" name="name" value="{{ $session->name }}" required>
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Start Date</label>
+                      <label class="form-label" style="color: #35a52bff;">Start Date</label>
                       <input type="date" class="form-control" name="start_date" value="{{ $session->start_date }}"
                         required>
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">End Date</label>
+                      <label class="form-label" style="color: #35a52bff;">End Date</label>
                       <input type="date" class="form-control" name="end_date" value="{{ $session->end_date }}" required>
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Status</label>
+                      <label class="form-label" style="color: #35a52bff;">Status</label>
                       <select class="form-select" name="status">
                         <option value="active" {{ $session->status === 'active' ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ $session->status === 'inactive' ? 'selected' : '' }}>Inactive</option>
@@ -632,7 +632,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary" id="add">Update</button>
                   </div>
                 </form>
               </div>

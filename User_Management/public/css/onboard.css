@@ -90,7 +90,7 @@
 
 .img {
     height: 60px;
-    width: 60px;
+    width: 265px;
     margin: 4px;
 }
 
@@ -582,4 +582,53 @@ height: 30px;
     margin-right: 8px;
     width: 16px;
     text-align: center;
+}
+
+/* Fix for dropdown visibility in table */
+.whole {
+    overflow: visible !important;
+    position: relative;
+}
+
+.table {
+    overflow: visible !important;
+}
+
+.table tbody {
+    overflow: visible !important;
+}
+
+.table tbody tr {
+    overflow: visible !important;
+}
+
+.table tbody td {
+    overflow: visible !important;
+}
+
+/* Ensure dropdown appears above everything */
+.table .dropdown {
+    position: relative !important;
+    z-index: 1050;
+}
+
+.table .dropdown-menu {
+    position: absolute !important;
+    z-index: 1055 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block;
+    visibility: hidden;
+}
+
+.table .dropdown-menu.show {
+    visibility: visible !important;
+}
+
+/* Alternative: Make dropdown open upward if at bottom of table */
+.table tbody tr:last-child .dropdown-menu,
+.table tbody tr:nth-last-child(2) .dropdown-menu {
+    bottom: 100%;
+    top: auto;
+    margin-bottom: 2px;
 }

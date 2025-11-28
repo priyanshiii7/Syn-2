@@ -72,10 +72,10 @@
     }
 
     .img {
-      height: 60px;
-      width: 60px;
-      margin: 4px;
-    }
+    height: 60px;
+    width: 265px;
+    margin: 4px;
+}
 
     .main-container {
       max-width: 100%;

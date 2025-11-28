@@ -127,7 +127,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -317,7 +317,7 @@
     <!-- Main Content Area -->
     <div class="right" id="right">
       <div class="container-fluid py-4">
-        <a href="{{ route('inquiries.index') }}" class="back-btn">
+        <a href="{{ route('inquiries.index') }}" class="back-btn" style="color: #35a52bff;">
           <i class="fa-solid fa-arrow-left"></i> Back
         </a>
         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -325,8 +325,7 @@
 
         <!-- Basic Details Section -->
         <div class="view-section">
-          <h4>View Basic Details</h4>
-          <div class="form-row">
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">View Basic Details</h4>          <div class="form-row">
             <div class="form-group">
               <label>Student Name</label>
               <input type="text" class="form-control" value="{{ $inquiry->student_name ?? 'N/A' }}" readonly>
@@ -396,7 +395,8 @@
 
         <!-- Address Details Section -->
         <div class="view-section">
-          <h4>Address Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Address Details</h4>          
+<div class="form-row">
           <div class="form-row">
             <div class="form-group">
               <label>State</label>
@@ -442,7 +442,7 @@
 
         <!-- Course Details Section -->
         <div class="view-section">
-          <h4>Course Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Course Details</h4>          
           <div class="form-row">
             <div class="form-group">
               <label>Course Type</label>
@@ -478,7 +478,7 @@
 
         <!-- Academic Details Section -->
         <div class="view-section">
-          <h4>Academic Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Academic Details</h4>          
           <div class="form-row">
             <div class="form-group">
               <label>Previous Class</label>
@@ -515,7 +515,7 @@
 
 <!-- Scholarship Details Section -->
         <div class="view-section">
-          <h4>Scholarship Details</h4>
+          <h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Scholarship Details</h4>
           <div class="form-row">
             <div class="form-group">
               <label>Eligible For Scholarship</label>
@@ -551,11 +551,11 @@
 
         <!-- Fees and Available Batches Details Section -->
         <div class="view-section">
-          <h4>Fees and Available Batches Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Fees and Batches Details</h4>          
           <div class="form-row">
             <div class="form-group full-width">
               <label>Fees Breakup</label>
-              <input type="text" class="form-control" value="{{ $feesData['fees_breakup'] }}" readonly style="color: #ff6b35; font-weight: 600;">
+              <input type="text" class="form-control" value="{{ $feesData['fees_breakup'] }}" readonly style="color: #30882aff; font-weight: 600;">
             </div>
 
             <div class="form-group">
@@ -570,16 +570,16 @@
 
             <div class="form-group">
               <label>Total Fees Inclusive Tax</label>
-              <input type="text" class="form-control" value="₹{{ number_format($feesData['total_fees_inclusive_tax']) }}" readonly style="color: #ff6b35; font-weight: 600;">
+              <input type="text" class="form-control" value="₹{{ number_format($feesData['total_fees_inclusive_tax']) }}" readonly style="color:  #30882aff; font-weight: 600;">
             </div>
 
             <div class="form-group">
               <label>If Fees Deposited In Single Installment</label>
-              <input type="text" class="form-control" value="₹{{ number_format($feesData['single_installment_amount']) }}" readonly style="color: #ff6b35; font-weight: 600;">
+              <input type="text" class="form-control" value="₹{{ number_format($feesData['single_installment_amount']) }}" readonly style="color: #30882aff; font-weight: 600;">
             </div>
 
             <div class="form-group full-width" style="margin-top: 15px; margin-bottom: 5px;">
-              <label style="font-weight: 700; color: #ff6b35;">If Fees Deposited In Three Installments</label>
+              <label style="font-weight: 700; color: #30882aff;">If Fees Deposited In Three Installments</label>
             </div>
 
             <div class="form-group">

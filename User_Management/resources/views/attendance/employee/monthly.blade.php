@@ -30,7 +30,7 @@
 }
 
 .page-title {
-  color: #ed5b00;
+  color: #35a52bff;
   font-size: 24px;
   font-weight: 600;
   margin: 0;
@@ -60,10 +60,10 @@
 
 .tab-btn {
   padding: 10px 30px;
-  border: 2px solid #ed5b00;
+  border: 2px solid #35a52bff;
   border-radius: 6px;
   background: white;
-  color: #ed5b00;
+  color: #35a52bff;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -73,12 +73,12 @@
 }
 
 .tab-btn.active {
-  background: #ed5b00;
+  background: #35a52bff;
   color: white;
 }
 
 .tab-btn:hover {
-  background: #ed5b00;
+  background: #35a52bff;
   color: white;
 }
 
@@ -141,7 +141,7 @@
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  color: #ed5b00;
+  color: #35a52bff;
 }
 
 .monthly-table {
@@ -151,12 +151,12 @@
 
 .monthly-table thead th {
   background: white;
-  color: #ed5b00;
+  color: #35a52bff;
   font-weight: 600;
   font-size: 14px;
   padding: 15px 12px;
   text-align: left;
-  border-bottom: 2px solid #ed5b00;
+  border-bottom: 2px solid #35a52bff;
 }
 
 .monthly-table tbody td {
@@ -175,7 +175,7 @@
   padding: 8px 20px;
   border: none;
   border-radius: 6px;
-  background: #ed5b00;
+  background: #35a52bff;
   color: white;
   cursor: pointer;
   font-size: 13px;
@@ -184,7 +184,7 @@
 }
 
 .action-btn:hover {
-  background: #d54f00;
+  background: #2c8c27;
 }
 
 .action-btn i {
@@ -240,7 +240,7 @@
   align-items: center;
   padding: 20px 25px;
   border-bottom: 2px solid #f0f0f0;
-  background: linear-gradient(135deg, #ed5b00 0%, #ff7a33 100%);
+  background: linear-gradient(135deg, #35a52bff 0%, #2c8c27 100%);
   border-radius: 12px 12px 0 0;
 }
 
@@ -294,7 +294,7 @@
   font-size: 14px;
   padding: 15px 20px;
   text-align: left;
-  border-bottom: 2px solid #ed5b00;
+  border-bottom: 2px solid #35a52bff;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -357,7 +357,7 @@
 }
 
 .weekend-day {
-  color: #dc3545;
+  color: #35a52bff;
 }
 
 .loading-cell {
@@ -369,7 +369,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #ed5b00;
+  border-top: 4px solid #35a52bff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 0 auto;
@@ -406,20 +406,20 @@
 }
 
 .pagination li a:hover {
-  background: #ed5b00;
+  background: #35a52bff;
   color: white;
-  border-color: #ed5b00;
+  border-color: #35a52bff;
 }
 
 .pagination li.active a {
-  background: #ed5b00;
+  background: #35a52bff;
   color: white;
-  border-color: #ed5b00;
+  border-color: #35a52bff;
 }
 
 .search-btn {
   padding: 8px 16px;
-  background: #ed5b00;
+  background: #35a52bff;
   color: white;
   border: none;
   border-radius: 6px;
@@ -432,7 +432,7 @@
 }
 
 .search-btn:hover {
-  background: #d54f00;
+  background: #35a52bff;
 }
 </style>
 </head>
@@ -466,29 +466,30 @@
   </div>
 
   <div class="main-container">
-   <div class="left" id="sidebar">
+      <div class="left" id="sidebar">
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>synthesisbikaner@gmail.com</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
-      <div class="accordion accordion-flush" id="accordionFlushExample">
+     <div class="accordion accordion-flush" id="accordionFlushExample">
+
   <!-- User Management -->
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"
         id="accordion-button">
-        <i class="fa-solid fa-user-group" id="side-icon"></i>User Management
+        <i class="fa-solid fa-user-group" id="side-icon"></i>Team Control
       </button>
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="{{ route('user.emp.emp') }}"><i class="fa-solid fa-user" id="side-icon"></i> Employee</a></li>     
-          <li><a class="item" href="{{ route('user.batches.batches') }}"><i class="fa-solid fa-user-group" id="side-icon"></i> Batches Assignment</a></li>
+          <li><a class="item" href="{{ route('user.emp.emp') }}"><i class="fa-solid fa-user" id="side-icon"></i>Staff Directory</a></li>     
+          <!-- <li><a class="item" href="{{ route('user.batches.batches') }}"><i class="fa-solid fa-user-group" id="side-icon"></i> Batches Assignment</a></li> -->
         </ul>
       </div>
     </div>
@@ -500,18 +501,18 @@
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo"
         id="accordion-button">
-        <i class="fa-solid fa-user-group" id="side-icon"></i> Master
+        <i class="fa-solid fa-user-group" id="side-icon"></i>Academy Setting 
       </button>
     </h2>
     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="{{ route('courses.index') }}"><i class="fa-solid fa-book-open" id="side-icon"></i> Courses</a></li>
-          <li><a class="item" href="{{ route('batches.index') }}"><i class="fa-solid fa-user-group fa-flip-horizontal" id="side-icon"></i> Batches</a></li>
-          <li><a class="item" href="{{ route('master.scholarship.index') }}"><i class="fa-solid fa-graduation-cap" id="side-icon"></i> Scholarship</a></li>
-          <li><a class="item" href="{{ route('fees.index') }}"><i class="fa-solid fa-credit-card" id="side-icon"></i> Fees Master</a></li>
-          <li><a class="item" href="{{ route('master.other_fees.index') }}"><i class="fa-solid fa-wallet" id="side-icon"></i> Other Fees Master</a></li>
-          <li><a class="item" href="{{ route('branches.index') }}"><i class="fa-solid fa-diagram-project" id="side-icon"></i> Branch Management</a></li>
+          <li><a class="item" href="{{ route('courses.index') }}"><i class="fa-solid fa-book-open" id="side-icon"></i>Course Catalog</a></li>
+          <li><a class="item" href="{{ route('batches.index') }}"><i class="fa-solid fa-user-group fa-flip-horizontal" id="side-icon"></i>Batch Planner</a></li>
+          <li><a class="item" href="{{ route('master.scholarship.index') }}"><i class="fa-solid fa-graduation-cap" id="side-icon"></i>Scholarships Schemes</a></li>
+          <li><a class="item" href="{{ route('fees.index') }}"><i class="fa-solid fa-credit-card" id="side-icon"></i>Fees Structures</a></li>
+          <!-- <li><a class="item" href="{{ route('master.other_fees.index') }}"><i class="fa-solid fa-wallet" id="side-icon"></i> Other Fees Master</a></li> -->
+          <li><a class="item" href="{{ route('branches.index') }}"><i class="fa-solid fa-diagram-project" id="side-icon"></i>Centres</a></li>
         </ul>
       </div>
     </div>
@@ -523,15 +524,15 @@
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree"
         id="accordion-button">
-        <i class="fa-solid fa-user-group" id="side-icon"></i>Session Management
+        <i class="fa-solid fa-user-group" id="side-icon"></i>Academic Cycle 
       </button>
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="{{ route('sessions.index') }}"><i class="fa-solid fa-calendar-day" id="side-icon"></i> Session</a></li>
-          <li><a class="item" href="{{ route('calendar.index') }}"><i class="fa-solid fa-calendar-days" id="side-icon"></i> Calendar</a></li>
-          <li><a class="item" href="#"><i class="fa-solid fa-user-check" id="side-icon"></i> Student Migrate</a></li>
+          <li><a class="item" href="{{ route('sessions.index') }}"><i class="fa-solid fa-calendar-day" id="side-icon"></i>Academic Session</a></li>
+          <li><a class="item" href="{{ route('calendar.index') }}"><i class="fa-solid fa-calendar-days" id="side-icon"></i>Institute Calendar</a></li>
+          <!-- <li><a class="item" href="#"><i class="fa-solid fa-user-check" id="side-icon"></i> Student Migrate</a></li> -->
         </ul>
       </div>
     </div>
@@ -543,16 +544,16 @@
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour"
         id="accordion-button">
-        <i class="fa-solid fa-user-group" id="side-icon"></i>Student Management
+        <i class="fa-solid fa-user-group" id="side-icon"></i>Student Lifecycle
       </button>
     </h2>
     <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="{{ route('inquiries.index') }}"><i class="fa-solid fa-circle-info" id="side-icon"></i> Inquiry Management</a></li>
-          <li><a class="item" href="{{ route('student.student.pending') }}"><i class="fa-solid fa-user-check" id="side-icon"></i>Student Onboard</a></li>
-          <li><a class="item" href="{{ route('student.pendingfees.pending') }}"><i class="fa-solid fa-user-check" id="side-icon"></i>Pending Fees Students</a></li>
-          <li><a class="item active" href="{{ route('smstudents.index') }}"><i class="fa-solid fa-user-check" id="side-icon"></i>Students</a></li>
+          <li><a class="item" href="{{ route('inquiries.index') }}"><i class="fa-solid fa-circle-info" id="side-icon"></i>Leads and Inquiries</a></li>
+          <li><a class="item" href="{{ route('student.student.pending') }}"><i class="fa-solid fa-user-check" id="side-icon"></i>New Admissions</a></li>
+          <li><a class="item" href="{{ route('student.pendingfees.pending') }}"><i class="fa-solid fa-user-check" id="side-icon"></i>Pending Payments</a></li>
+          <li><a class="item active" href="{{ route('smstudents.index') }}"><i class="fa-solid fa-user-check" id="side-icon"></i>Student Directory</a></li>
         </ul>
       </div>
     </div>
@@ -564,13 +565,13 @@
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive"
         id="accordion-button">
-        <i class="fa-solid fa-credit-card" id="side-icon"></i> Fees Management
+        <i class="fa-solid fa-credit-card" id="side-icon"></i>Finance Desk
       </button>
     </h2>
     <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="{{ route('fees.management.index') }}"><i class="fa-solid fa-credit-card" id="side-icon"></i> Fees Collection</a></li>
+          <li><a class="item" href="{{ route('fees.management.index') }}"><i class="fa-solid fa-credit-card" id="side-icon"></i>Fee Collection Desk</a></li>
         </ul>
       </div>
     </div>
@@ -582,14 +583,14 @@
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix"
         id="accordion-button">
-        <i class="fa-solid fa-user-check" id="side-icon"></i> Attendance Management
+        <i class="fa-solid fa-user-check" id="side-icon"></i> Attendance Hub
       </button>
     </h2>
     <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="{{ route('attendance.employee.index') }}"><i class="fa-solid fa-circle-info" id="side-icon"></i> Employee</a></li>
-          <li><a class="item" href="{{ route('attendance.student.index') }}"><i class="fa-solid fa-circle-info" id="side-icon"></i> Student</a></li>
+          <li><a class="item" href="{{ route('attendance.employee.index') }}"><i class="fa-solid fa-circle-info" id="side-icon"></i>Staff Attendance</a></li>
+          <li><a class="item" href="{{ route('attendance.student.index') }}"><i class="fa-solid fa-circle-info" id="side-icon"></i> Student Attendance</a></li>
         </ul>
       </div>
     </div>
@@ -601,21 +602,21 @@
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven"
         id="accordion-button">
-        <i class="fa-solid fa-book-open" id="side-icon"></i> Study Material
+        <i class="fa-solid fa-book-open" id="side-icon"></i>Learning Resources
       </button>
     </h2>
     <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="{{ route('units.index') }}"><i class="fa-solid fa-user" id="side-icon"></i>Units</a></li>
-          <li><a class="item" href="{{ route('study_material.dispatch.index') }}"><i class="fa-solid fa-user" id="side-icon"></i>Dispatch Material</a></li>
+          <li><a class="item" href="{{ route('units.index') }}"><i class="fa-solid fa-user" id="side-icon"></i>Material Distribution</a></li>
+          <!-- <li><a class="item" href="{{ route('study_material.dispatch.index') }}"><i class="fa-solid fa-user" id="side-icon"></i>Dispatch Material</a></li> -->
         </ul>
       </div>
     </div>
   </div>
 
   <!-- Test Series Management -->
-  <div class="accordion-item">
+  <!-- <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight"
@@ -630,7 +631,7 @@
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Reports -->
   <div class="accordion-item">
@@ -638,17 +639,17 @@
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine"
         id="accordion-button">
-        <i class="fa-solid fa-square-poll-horizontal" id="side-icon"></i> Reports
+        <i class="fa-solid fa-square-poll-horizontal" id="side-icon"></i>Reports and Insights
       </button>
     </h2>
     <div id="flush-collapseNine" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <ul class="menu" id="dropdown-body">
-          <li><a class="item" href="#"><i class="fa-solid fa-user" id="side-icon"></i>Walk In</a></li>
-          <li><a class="item" href="#"><i class="fa-solid fa-calendar-days" id="side-icon"></i> Attendance</a></li>
+          <li><a class="item" href="{{ route('reports.walkin.index') }}"><i class="fa-solid fa-user" id="side-icon"></i>Statistics</a></li>
+          <!-- <li><a class="item" href="#"><i class="fa-solid fa-calendar-days" id="side-icon"></i> Attendance</a></li>
           <li><a class="item" href="#"><i class="fa-solid fa-file" id="side-icon"></i>Test Series</a></li>
           <li><a class="item" href="{{ route('inquiries.index') }}"><i class="fa-solid fa-file" id="side-icon"></i>Inquiry History</a></li>
-          <li><a class="item" href="#"><i class="fa-solid fa-file" id="side-icon"></i>Onboard History</a></li>
+          <li><a class="item" href="#"><i class="fa-solid fa-file" id="side-icon"></i>Onboard History</a></li> -->
         </ul>
       </div>
     </div>

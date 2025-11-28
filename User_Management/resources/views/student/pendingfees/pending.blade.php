@@ -14,9 +14,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 
-   <style>
-
-    * {
+<style>
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,15 +43,18 @@
     border: 0.5px solid orangered;
     border-radius: 5px;
 }
+
 .icons{
     display: flex;
     justify-content: center;
     align-items: baseline;
 }
+
 #side-icon{
     color: #838383;
     font-size: 16px;
 }
+
 .session {
     align-items: center;
     flex-direction: row;
@@ -77,6 +79,7 @@
     justify-content: center;
     align-items: center;
 }
+
 #dropdown-body{
     padding: 0 !important;
     display: flex;
@@ -98,7 +101,7 @@
 
 .img {
     height: 60px;
-    width: 60px;
+    width: 265px;
     margin: 4px;
 }
 
@@ -113,6 +116,7 @@
     width: 20%;
     overflow-y: scroll;
 }
+
 #toggle-btn {
     background-color: transparent;
     justify-content: center;
@@ -141,20 +145,21 @@
     font-size: 15px;
 }
 
- .accordion-flush {
+.accordion-flush {
     justify-content: flex-start;
     align-items: center;
     height: 10px;
 } 
+
 .accordion-body{
     padding: 10px !important;
 }
+
 .menu {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-
 }
 
 .fa-bars {
@@ -209,6 +214,7 @@
     overflow-y: scroll;
     background-color: #e7e7e7;
 }
+
 .whole{
     margin: 5px;
     padding: 20px;
@@ -219,8 +225,10 @@
     flex-direction: column;
     background-color: #ffffff;
     border: 1px solid #d6d6d6;
+    overflow: visible !important; /* FIXED */
 }
-.right h2 , .right p{
+
+.right h2, .right p{
     color: rgb(224, 83, 1);
     margin: 10px;
 }
@@ -231,7 +239,8 @@
 
 #table{
     font-size: 12px;
-    flex-direction: column;  
+    flex-direction: column;
+    overflow: visible !important; /* FIXED */
 }
 
 .top {
@@ -263,8 +272,9 @@
     border: 0;
     margin: 10px;
 }
+
 #submit{
-     border:1px solid rgb(249, 193, 161);
+    border:1px solid rgb(249, 193, 161);
     background-color: #ff6200;
     color: #fff;
     height: 40px;
@@ -272,6 +282,7 @@
     border-radius: 7px; 
     margin: 10px;
 }
+
 #up{
     background-color: rgb(8, 90, 0);
     color: #edfeff;
@@ -280,13 +291,11 @@
     border-radius: 7px;
     border: 0;
     margin: 10px;
-
 }
 
 .menu li {
     list-style: none;
 }
-
 
 .btn-secondary,
 #ellipsis {
@@ -313,7 +322,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 #ellipsis {
@@ -323,7 +331,6 @@
     border: none;
     cursor: pointer; 
 }
-
 
 #serial{
     margin-left: 15px;
@@ -352,13 +359,13 @@
 #one{
     color: rgb(224, 83, 1); 
 }
+
 .search-holder{
     border: 1px solid rgb(224, 83, 1);
     border-radius: 5px;
     outline: none;
     padding: 5px;
 }
-
 
 #bottom{
     display: flex;
@@ -370,6 +377,7 @@
 #pagination{
     border: 1px solid #d4d4d4;
 }
+
 #pg1{
     height: 30px;
     width: 70px;
@@ -378,19 +386,21 @@
     color: #838383;
     align-items: center;
 }
+
 #pg2{
-height: 30px;
+    height: 30px;
     width: 50px;
     display: flex;
     color: #fff;
     justify-content: center;
     align-items: center;
-    background-color:  rgb(224, 83, 1);
+    background-color: rgb(224, 83, 1);
     border:none;
 }
+
 #pg3{
     height: 30px;
-    color:  rgb(224, 83, 1);
+    color: rgb(224, 83, 1);
     width: 50px;
     display: flex;
     justify-content: center;
@@ -403,7 +413,7 @@ height: 30px;
     width: 700px;
 }
 
-.modal-dialog-scrollable , .modal-content{
+.modal-dialog-scrollable, .modal-content{
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -425,23 +435,26 @@ height: 30px;
     background-color: #fff;
     z-index: 10; 
 }
+
 #content-one{
     height: 500px;
     width: 600px;
-     margin-top: 80px;
+    margin-top: 80px;
 }
+
 #modal-two{
     height: 300px;
     width: 600px;
-    
 }
+
 #sample-body{
-      display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
- #file{
+
+#file{
     height: 34px;
     width: 400px;
     border: 2px solid #d8d8d8;
@@ -455,7 +468,7 @@ height: 30px;
     height: 40px;
     width: 200px;
     border-radius: 10px;
-    background-color:  rgb(224, 83, 1);
+    background-color: rgb(224, 83, 1);
     border: 0;
     color: #fff;
 }
@@ -467,10 +480,11 @@ height: 30px;
     justify-content: space-between;
     width: 95%;
 }
+
 .left-footer p{
     font-size: 12px;
 }
- 
+
 #pass{
     display: flex;
     flex-direction: row;
@@ -517,6 +531,7 @@ height: 30px;
     width: 290px;
     font-size: 17px;
 }
+
 .menu li {
     list-style: none;
     cursor: pointer;
@@ -526,10 +541,12 @@ height: 30px;
     display: flex;
     justify-content: flex-start;
 }
+
 .menu li a{
     text-decoration: none;
     color: #000;
 }
+
 .accordion-body, .menu{
     padding: 0 !important;
     margin-left: 5px;
@@ -545,6 +562,7 @@ height: 30px;
     align-items: center;
     margin: 25px 15px 25px 10px;
 }
+
 .pendingbtn{
     color: rgb(233, 96, 47);
     background-color: white;
@@ -554,6 +572,7 @@ height: 30px;
     border-radius: 5px;
     cursor: pointer;
 }
+
 .onboardbtn{
     border: none;
     background-color: rgb(233, 96, 47);
@@ -599,8 +618,10 @@ height: 30px;
 
 /* Action Dropdown Menu Styling */
 .action-dropdown-menu {
-    min-width: 150px !important;
+    min-width: 180px !important;
     padding: 5px 0 !important;
+    z-index: 9999 !important;
+    position: absolute !important;
 }
 
 .action-item {
@@ -626,7 +647,37 @@ height: 30px;
     outline: none !important;
     box-shadow: none !important;
 }
-   </style> 
+
+/* === DROPDOWN FIX - CRITICAL === */
+#table tbody {
+    overflow: visible !important;
+}
+
+#table tbody tr {
+    overflow: visible !important;
+}
+
+#table tbody td {
+    overflow: visible !important;
+    position: relative;
+}
+
+.dropdown {
+    position: static !important;
+}
+
+.dropdown-menu {
+    position: absolute !important;
+    z-index: 9999 !important;
+    min-width: 180px !important;
+}
+
+.dropdown-menu.show {
+    display: block !important;
+    visibility: visible !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -665,7 +716,7 @@ height: 30px;
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -967,7 +1018,7 @@ height: 30px;
   <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: rgb(224, 83, 1); color: white;">
+        <div class="modal-header" style="background-color: #28a745; color: #fff;">
           <h5 class="modal-title" id="historyModalLabel">
             <i class="fa-solid fa-clock-rotate-left me-2"></i>Student Activity History
           </h5>

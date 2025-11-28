@@ -25,13 +25,13 @@
       width: 90%;
     }
     .page-title {
-      color: #e05301;
+      color: #35a52bff;
       font-size: 24px;
       font-weight: 600;
       margin: 0;
     }
     .back-link {
-      color: #e05301;
+      color: #35a52bff;
       text-decoration: none;
       font-size: 16px;
       font-weight: 500;
@@ -40,7 +40,7 @@
       gap: 8px;
     }
     .back-link:hover {
-      color: #c04501;
+      color: #35a52bff;
     }
     .form-container {
       background-color: #ffffff;
@@ -51,12 +51,12 @@
       width: 80%;
     }
     .section-title {
-      color: #e05301;
+      color: #35a52bff;
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 20px;
       padding-bottom: 10px;
-      border-bottom: 2px solid #e05301;
+      border-bottom: 2px solid #35a52bff;
     }
     .form-section {
       margin-bottom: 40px;
@@ -72,8 +72,8 @@
       padding: 10px 12px;
     }
     .form-control:focus, .form-select:focus {
-      border-color: #e05301;
-      box-shadow: 0 0 0 0.2rem rgba(224, 83, 1, 0.25);
+      border-color: #35a52bff;
+      box-shadow: 0 0 0 0.2rem rgba(45, 224, 1, 0.25);
     }
     .radio-group {
       display: flex;
@@ -93,16 +93,16 @@
       background-color: #f8f9fa;
     }
     .upload-area:hover {
-      border-color: #e05301;
+      border-color: #35a52bff;
       background-color: #fff5f0;
     }
     .upload-area i {
       font-size: 40px;
-      color: #e05301;
+      color: #35a52bff;
       margin-bottom: 10px;
     }
     .btn-update {
-      background-color: #e05301;
+      background-color: #35a52bff;
       color: white;
       padding: 12px 40px;
       border: none;
@@ -112,7 +112,7 @@
       transition: all 0.3s;
     }
     .btn-update:hover {
-      background-color: #c04501;
+      background-color: #35a52bff;
       color: white;
     }
     .current-file-info {
@@ -185,7 +185,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -375,8 +375,8 @@
     <div class="right" id="right">
       <!-- Page Header -->
       <div class="page-header">
-        <h1 class="page-title">Update Student</h1>
-        <a href="{{ route('smstudents.index') }}" class="back-link">
+        <h1 class="page-title" style="color: #35a52bff;">Update Student</h1>
+        <a href="{{ route('smstudents.index') }}" class="back-link" style="color: #35a52bff;">
           <i class="fas fa-arrow-left"></i> Back
         </a>
       </div>
@@ -388,8 +388,8 @@
           @method('PUT') 
           <!-- Basic Details Section -->
           <div class="form-section">
-            <h5 class="section-title">Basic Details</h5>
-            
+  <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-user"></i> Basic Details        
+    </h5>        
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="form-label">Student Name</label>
@@ -520,8 +520,8 @@
 
           <!-- Academic Detail Section -->
           <div class="form-section">
-            <h5 class="section-title">Academic Detail</h5>
-            
+  <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-user"></i> Academic Details        
+            </h5>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="form-label">Previous Class</label>
@@ -572,8 +572,8 @@
 
           <!-- Upload Documents Section -->
           <div class="form-section">
-            <h5 class="section-title">Upload Documents</h5>
-            
+  <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-user"></i>Upload Documents       
+  </h5>
             <!-- Passport Photo -->
             <div class="mb-3">
                 <label class="form-label">Passport Size Photo</label>
@@ -685,7 +685,7 @@
 
           <!-- Submit Button -->
           <div class="text-center mt-4">
-            <button type="submit" class="btn btn-update">
+            <button type="submit" class="btn btn-update" id="add">
               <i class="fas fa-save me-2"></i>Update Student
             </button>
           </div>

@@ -130,7 +130,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -639,7 +639,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Update Batch</button>
+                    <button type="submit" class="btn btn-primary" id="add">Update Batch</button>
                   </div>
                 </form>
               </div>
@@ -779,7 +779,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
         <div class="modal fade" id="uploadBatchModal" tabindex="-1" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header" style="background-color: #ed5b00ff; color: white;">
+              <div class="modal-header" style="background-color: #2aa007ff; color: white; border-color: #fff;">
                 <h5 class="modal-title">Upload Batches</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                   aria-label="Close"></button>
@@ -790,7 +790,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
                   <label class="form-label fw-bold">Export Current Data</label>
                   <p class="text-muted small">Download all current batch data as Excel file.</p>
                   <a href="{{ route('batches.export') }}?search={{ request('search') }}&per_page={{ request('per_page', 10) }}"
-                    class="btn btn-info w-100" style="background-color: #ed5b00ff; color: white;">
+                    class="btn btn-info w-100" style="background-color: #2aa007ff; color: white; border-color: #fff;">
                     <i class="fa-solid fa-download"></i> Download Current Batches
                   </a>
                 </div>

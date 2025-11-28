@@ -90,7 +90,7 @@
 
 .img {
     height: 60px;
-    width: 60px;
+    width: 265px;
     margin: 4px;
 }
 
@@ -1085,4 +1085,23 @@ button, .btn, a {
 
 .d-flex.justify-content-between.align-items-center.mt-3 {
     padding: 15px 0;
+}
+
+/* Force dropdown visibility */
+.table .dropdown-menu {
+    z-index: 9999 !important;
+    position: absolute !important;
+}
+
+.table .dropdown {
+    position: relative !important;
+}
+
+.table {
+    overflow: visible !important;
+}
+
+.whole {
+    overflow: visible !important;
+    position: relative;
 }

@@ -48,7 +48,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -305,7 +305,7 @@
 <div class="modal fade" id="scholarshipModal" tabindex="-1" aria-labelledby="scholarshipModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" style="background-color: #3a9700ff; color: #fff;">
         <h1 class="modal-title fs-5" id="scholarshipModalLabel">Create Scholarship</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -362,6 +362,7 @@
             </select>
           </div>
 
+
           <!-- Footer moved inside form -->
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelBtn">Cancel</button>
@@ -378,7 +379,7 @@
   <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style="background-color: #3cab20ff; color: #fff;">
           <h1 class="modal-title fs-5" id="viewModalLabel">Scholarship Details</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -620,7 +621,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const li = document.createElement('li');
       li.className = 'page-item';
       const isActive = p === current;
-      li.innerHTML = `<a class="page-link ${isActive ? 'active' : ''}" href="#" style="${isActive ? 'background-color: rgb(224, 83, 1); color: white;' : ''}">${p}</a>`;
+      li.innerHTML = `<a class="page-link ${isActive ? 'active' : ''}" href="#" style="${isActive ? 'background-color: rgba(90, 241, 90, 1); color: #fff;' : ''}">${p}</a>`;
       li.addEventListener('click', (e) => {
         e.preventDefault();
         state.page = p;

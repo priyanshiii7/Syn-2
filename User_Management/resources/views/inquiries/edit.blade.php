@@ -165,7 +165,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -357,10 +357,10 @@
       <div class="container-fluid py-4">
         <!-- Page Header -->
         <div class="page-header"> 
-          <a href="{{ route('inquiries.index') }}" class="back-btn" style="border: 1px solid #ff6b35; padding: 8px 16px; border-radius: 6px;">
+          <a href="{{ route('inquiries.index') }}" class="back-btn" style="border: 1px solid #005307ff; padding: 8px 16px; border-radius: 6px;">
             <i class="fa-solid fa-arrow-left"></i> Back
           </a>
-          <h3 class="page-title" style="color: orangered;">Update Student</h3>
+          <h3 class="page-title" id="add">Update Student</h3>
          
         </div>
 

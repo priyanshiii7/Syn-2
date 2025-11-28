@@ -67,12 +67,12 @@
     }
     .tab-btn.active {
       color: #ffffff;
-      background-color: #e05301;
+      background-color: #35a52bff;
       border-radius: 5px 5px 0 0;
       font-weight: 600;
     }
     .tab-btn:hover:not(.active) {
-      color: #e05301;
+      color: #35a52bff;
     }
     .tab-content-section {
       display: none;
@@ -91,7 +91,7 @@
       align-items: center;
       justify-content: center;
       margin: 0 auto 20px;
-      border: 3px solid #e05301;
+      border: 3px solid #35a52bff;
     }
     .student-avatar i {
       font-size: 80px;
@@ -108,12 +108,12 @@
       margin-bottom: 30px;
     }
     .detail-section h5 {
-      color: #e05301;
+      color: #35a52bff;
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 20px;
       padding-bottom: 10px;
-      border-bottom: 2px solid #e05301;
+      border-bottom: 2px solid #35a52bff;
     }
     .detail-row {
       display: grid;
@@ -150,7 +150,7 @@
     .info-box-answer {
       font-size: 15px;
       font-weight: 500;
-      color: #e05301;
+      color: #35a52bff;
     }
     .document-item {
       display: flex;
@@ -209,15 +209,15 @@
     }
     .fees-tab-btn {
       padding: 10px 20px;
-      border: 1px solid #e05301;
+      border: 1px solid #35a52bff;
       background-color: #ffffff;
-      color: #e05301;
+      color: #35a52bff;
       border-radius: 5px;
       cursor: pointer;
       font-weight: 500;
     }
     .fees-tab-btn.active {
-      background-color: #e05301;
+      background-color: #35a52bff;
       color: #ffffff;
     }
     .scholarship-box {
@@ -235,15 +235,15 @@
     }
     .test-type-btn {
       padding: 10px 20px;
-      border: 1px solid #e05301;
+      border: 1px solid #35a52bff;
       background-color: #ffffff;
-      color: #e05301;
+      color: #35a52bff;
       border-radius: 5px;
       cursor: pointer;
       font-weight: 500;
     }
     .test-type-btn.active {
-      background-color: #e05301;
+      background-color: #35a52bff;
       color: #ffffff;
     }
     .test-stats-grid {
@@ -274,9 +274,9 @@
 
 .test-type-btn {
   padding: 10px 20px;
-  border: 1px solid #e05301;
+  border: 1px solid #35a52bff;
   background-color: #ffffff;
-  color: #e05301;
+  color: #35a52bff;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
@@ -285,7 +285,7 @@
 }
 
 .test-type-btn.active {
-  background-color: #e05301;
+  background-color: #35a52bff;
   color: #ffffff;
 }
 
@@ -309,9 +309,9 @@
 
 .pattern-btn {
   padding: 8px 16px;
-  border: 1px solid #e05301;
+  border: 1px solid #35a52bff;
   background-color: #ffffff;
-  color: #e05301;
+  color: #35a52bff;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
@@ -320,14 +320,14 @@
 }
 
 .pattern-btn.active {
-  background-color: #e05301;
+  background-color: #35a52bff;
   color: #ffffff;
 }
 
 .download-report-btn {
   float: right;
   padding: 10px 20px;
-  background-color: #e05301;
+  background-color: #35a52bff;
   color: white;
   border: none;
   border-radius: 5px;
@@ -340,14 +340,14 @@
 }
 
 .download-report-btn:hover {
-  background-color: #c04501;
+  background-color: #35a52bff;
   color: white;
 }
 
 /* Report Card Styles */
 .report-card {
   background: white;
-  border: 2px solid #e05301;
+  border: 2px solid #35a52bff;
   border-radius: 8px;
   padding: 30px;
   margin-top: 20px;
@@ -469,7 +469,7 @@
 }
 
 .stats-card h6 {
-  color: #e05301;
+  color: #35a52bff;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -521,7 +521,7 @@
 
 .document-item:hover {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border-color: #e05301;
+  border-color: #35a52bff;
 }
 
 .document-header {
@@ -534,7 +534,7 @@
 }
 
 .document-header i {
-  color: #e05301;
+  color: #35a52bff;
   font-size: 18px;
 }
 
@@ -585,12 +585,12 @@
 }
 
 .btn-primary {
-  background: #e05301;
+  background: #35a52bff;
   color: white;
 }
 
 .btn-primary:hover {
-  background: #c04701;
+  background: #35a52bff;
 }
 
 .btn-success {
@@ -613,11 +613,11 @@
 }
 
 .detail-section h5 {
-  color: #e05301;
+  color: #35a52bff;
   font-weight: 600;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #e05301;
+  border-bottom: 2px solid #35a52bff;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -653,12 +653,12 @@
   padding: 8px 12px;
   background: #f8f9fa;
   border-radius: 4px;
-  border-left: 3px solid #e05301;
+  border-left: 3px solid #35a52bff;
 }
 
 .info-box {
   background: #f8f9fa;
-  border-left: 4px solid #e05301;
+  border-left: 4px solid #35a52bff;
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 4px;
@@ -675,7 +675,7 @@
 }
 
 .info-box-question i {
-  color: #e05301;
+  color: #35a52bff;
 }
 
 .info-box-answer {
@@ -722,7 +722,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e05301;
+  background: #35a52bff;
   color: white;
   border-radius: 50%;
   font-size: 24px;
@@ -762,12 +762,12 @@
 }
 
 .btn-view {
-  background: #e05301;
+  background: #35a52bff;
   color: white;
 }
 
 .btn-view:hover {
-  background: #c04701;
+  background: #35a52bff;
   color: white;
 }
 
@@ -853,7 +853,7 @@
 
 .doc-icon {
   font-size: 20px;
-  color: #e05301;
+  color: #35a52bff;
 }
 
 .doc-label {
@@ -943,7 +943,7 @@
 }
 
 #calendarTable td.today {
-  border: 2px solid #e05301;
+  border: 2px solid #35a52bff;
   font-weight: 700;
 }
 
@@ -1055,7 +1055,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -1245,8 +1245,8 @@
     <div class="right" id="right">
       <!-- Page Header -->
       <div class="page-header">
-        <h1 class="page-title">Student View Detail</h1>
-        <a href="{{ route('smstudents.index') }}" class="back-link">
+        <h1 class="page-title" style="color: #35a52bff;">Student View Detail</h1>
+        <a href="{{ route('smstudents.index') }}" class="back-link" style="color: #35a52bff;">
           <i class="fas fa-arrow-left"></i> Back
         </a>
       </div>
@@ -1276,7 +1276,8 @@
 
   <!-- ========== PERSONAL INFORMATION ========== -->
   <div class="detail-section">
-    <h5><i class="fas fa-user"></i> Personal Information</h5>
+  <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-user"></i> Basic Details        
+</h5>
     
     <div class="detail-row">
       <div class="detail-item">
@@ -1414,7 +1415,7 @@
 
   <!-- ========== ADDITIONAL INFORMATION ========== -->
   <div class="detail-section">
-    <h5><i class="fas fa-info-circle"></i> Additional Information</h5>
+    <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-info-circle"></i> Additional Information</h5>
     
     <div class="info-box">
       <div class="info-box-question">
@@ -1455,7 +1456,7 @@
 
   <!-- ========== COURSE DETAIL ========== -->
   <div class="detail-section">
-    <h5><i class="fas fa-book"></i> Course Detail</h5>
+    <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-book"></i> Course Detail</h5>
     
     <div class="detail-row">
       <div class="detail-item">
@@ -1501,7 +1502,7 @@
 
   <!-- ========== ACADEMIC DETAIL ========== -->
   <div class="detail-section">
-    <h5><i class="fas fa-graduation-cap"></i> Academic Detail</h5>
+    <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-graduation-cap"></i> Academic Detail</h5>
     
     <div class="detail-row">
       <div class="detail-item">
@@ -1562,7 +1563,7 @@
 
   <!-- ========== SCHOLARSHIP ELIGIBILITY ========== -->
   <div class="detail-section">
-    <h5><i class="fas fa-award"></i> Scholarship Eligibility</h5>
+   <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-award"></i> Scholarship Eligibility</h5>
     
     <div class="info-box">
       <div class="info-box-question">
@@ -1621,7 +1622,7 @@
 
   <!-- ========== BATCH ALLOCATION ========== -->
   <div class="detail-section">
-    <h5><i class="fas fa-users"></i> Batch Allocation</h5>
+    <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-users"></i> Batch Allocation</h5>
     
     <div class="detail-row">
       <div class="detail-item">
@@ -1641,7 +1642,7 @@
 
  <!-- ========== VIEW DOCUMENTS ========== -->
 <div class="detail-section">
-  <h5><i class="fas fa-folder-open"></i> View Documents</h5>
+ <h5 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;"><i class="fas fa-folder-open"></i> View Documents</h5>
   
   @php
     $documents = [
@@ -1712,7 +1713,7 @@
 <div class="tab-content-section" id="student-attendance">
   <!-- Month Selector -->
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h5 style="color: #e05301; margin: 0;">
+    <h5 style="color: #35a52bff; ; margin: 0;">
       <i class="fas fa-calendar-alt"></i> <span id="currentMonthLabel">Loading...</span>
     </h5>
     <input type="month" id="monthSelector" class="form-control" style="width: 200px;" value="{{ date('Y-m') }}">
@@ -1721,7 +1722,7 @@
   <div class="attendance-grid">
     <!-- Calendar Widget -->
     <div class="attendance-card">
-      <h6 style="color: #e05301; margin-bottom: 15px;">
+      <h6 style="color: #35a52bff; margin-bottom: 15px;">
         <i class="fas fa-calendar"></i> <span id="calendarMonthLabel">{{ strtoupper(date('M Y')) }}</span>
       </h6>
       <div class="calendar-widget">
@@ -1745,20 +1746,20 @@
 
     <!-- Attendance Status Circle -->
     <div class="attendance-card">
-      <h6 style="color: #e05301; margin-bottom: 15px;">
+      <h6 style="color: #35a52bff; margin-bottom: 15px;">
         <i class="fas fa-chart-pie"></i> Attendance Status
       </h6>
       <div class="attendance-status-circle">
         <canvas id="attendanceChart"></canvas>
       </div>
-      <p class="text-center mt-3" style="color: #e05301; font-weight: 600;">
+      <p class="text-center mt-3" style="color: #35a52bff; font-weight: 600;">
         Total Presence - <span id="attendanceRatio">0/0</span>
       </p>
     </div>
 
     <!-- Avg Attendance Rate Chart -->
     <div class="attendance-card">
-      <h6 style="color: #e05301; margin-bottom: 15px;">
+      <h6 style="color: #35a52bff; margin-bottom: 15px;">
         <i class="fas fa-chart-line"></i> Attendance Rate
       </h6>
       <div class="chart-container">
@@ -1770,7 +1771,7 @@
   <!-- Attendance Table -->
   <div class="detail-section">
     <div class="d-flex justify-content-between align-items-center mb-3">
-      <h6 style="color: #e05301; margin: 0;">
+      <h6 style="color: #35a52bff; margin: 0;">
         <i class="fas fa-table"></i> Monthly Attendance Summary
       </h6>
     </div>

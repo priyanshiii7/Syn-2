@@ -121,7 +121,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -312,11 +312,11 @@ LINE 629-665: AJAX Script for Dynamic User Addition
     <!-- Calendar Content -->
     <div class="calendar-container">
       <div class="calendar-header">
-        <h3>Session Calendar</h3>
+        <h3 style="color: #35a52bff;">Session Calendar</h3>
         <div class="calendar-actions">
-          <button class="btn-mark-sunday" id="markAllSundayBtn">Mark All Sunday as Holiday</button>
-          <button class="btn-add-holiday" id="addHolidayBtn">Add Holiday</button>
-          <button class="btn-add-test" id="addTestBtn">Add Test</button>
+          <button class="btn-mark-sunday" id="markAllSundayBtn" style="background-color: #35a52bff; color: #fff;">Mark All Sunday as Holiday</button>
+          <button class="btn-add-holiday" id="addHolidayBtn" style="background-color: #35a52bff; color: #fff;">Add Holiday</button>
+          <button class="btn-add-test" id="addTestBtn" style="background-color: #35a52bff; color: #fff;">Add Test</button>
         </div>
       </div>
 
@@ -330,7 +330,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
         <div class="calendar-sidebar">
           <!-- Holiday List -->
           <div class="list-card">
-            <div class="list-card-header">Holiday List</div>
+            <div class="list-card-header" style="background-color: #35a52bff; color: #fff;">Holiday List</div>
             <div class="list-card-body" id="holidayList">
               <div class="list-item-empty">No holidays added</div>
             </div>
@@ -338,7 +338,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
 
           <!-- Test List -->
           <div class="list-card">
-            <div class="list-card-header">Test List</div>
+            <div class="list-card-header" style="background-color: #35a52bff; color: #fff;">Test List</div>
             <div class="list-card-body" id="testList">
               <div class="list-item-empty">No tests added</div>
             </div>
@@ -352,7 +352,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
   <div class="modal fade" id="addHolidayModal" tabindex="-1" aria-labelledby="addHolidayModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style="background-color: #35a52bff; color: #fff;">
           <h5 class="modal-title" id="addHolidayModalLabel">Add Holiday</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -369,7 +369,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="add">Submit</button>
           </div>
         </form>
       </div>
@@ -380,7 +380,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
   <div class="modal fade" id="addTestModal" tabindex="-1" aria-labelledby="addTestModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style="background-color: #35a52bff; color: #fff;">
           <h5 class="modal-title" id="addTestModalLabel">Add Test</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -398,7 +398,7 @@ LINE 629-665: AJAX Script for Dynamic User Addition
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="add">Submit</button>
           </div>
         </form>
       </div>
@@ -412,5 +412,4 @@ LINE 629-665: AJAX Script for Dynamic User Addition
     <script src="{{ asset('js/calendar.js') }}"></script>
 
 </body>
-
 </html>

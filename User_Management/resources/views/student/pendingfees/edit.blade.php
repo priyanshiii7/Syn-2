@@ -171,7 +171,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -362,11 +362,12 @@
        <div class="right" id="right">
       <div class="container-fluid py-4">
         <!-- Page Header -->
-        <div class="page-header">
-          <h1 class="page-title">Update Student</h1>
-          <a href="{{ route('student.pendingfees.pending') }}" class="back-btn" style="border: 1px solid #ff6b35; padding: 8px 16px; border-radius: 6px;">
+        <div class="page-header"> 
+          <a href="{{ route('student.pendingfees.pending') }}" class="back-btn" style="color: #28a745;">
             <i class="fa-solid fa-arrow-left"></i> Back
           </a>
+          <h3 class="page-title" style="color: #218838;">Update Student</h3>
+         
         </div>
 
         <!-- Success Message -->
@@ -398,7 +399,7 @@
 
           <!-- Basic Details Section -->
           <div class="form-section">
-            <h4>Basic Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Basic Details</h4>          
             <div class="form-row-2col">
               <div class="form-group">
                 <label>Student Name <span class="required">*</span></label>
@@ -499,7 +500,7 @@
 
           <!-- Address Details Section -->
           <div class="form-section">
-            <h4>Address Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Address Details</h4>          
             <div class="form-row-2col">
               <div class="form-group">
                 <label>State</label>
@@ -561,7 +562,7 @@
 
           <!-- Course Details Section -->
           <div class="form-section">
-            <h4>Course Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Course Details</h4>          
             <div class="form-row-2col">
               <div class="form-group">
                 <label>Course Type</label>
@@ -597,7 +598,7 @@
 
           <!-- Academic Details Section -->
           <div class="form-section">
-            <h4>Academic Details</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Academic Details</h4>          
             <div class="form-row-2col">
               <div class="form-group">
                 <label>Previous Class</label>
@@ -633,7 +634,7 @@
 
           <!-- Scholarship Eligibility Section -->
           <div class="form-section">
-            <h4>Scholarship Eligibility</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Scholarship Eligibility</h4>          
             <div class="form-row-2col">
               <div class="form-group">
                 <label>Is Repeater</label>
@@ -671,7 +672,7 @@
 
           <!-- Batch Allocation Section -->
           <div class="form-section">
-            <h4>Batch Allocation</h4>
+<h4 style="color: #35a52bff; border-bottom: 2px solid #4A7C2C; width:100%; padding-bottom: 8px; display: inline-block; margin-bottom: 20px;">Batch Allocation</h4>          
             <div class="form-row-2col">
               <div class="form-group">
                 <label>Batch Name</label>

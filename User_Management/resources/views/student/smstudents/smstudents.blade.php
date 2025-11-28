@@ -61,7 +61,7 @@
       padding-right: 10px;
     }
     .activity-item {
-      border-left: 3px solid #fd550dff;
+      border-left: 3px solid #35a52bff;
       padding-left: 20px;
       padding-bottom: 20px;
       position: relative;
@@ -79,7 +79,7 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: #fd550dff;
+      background-color: #35a52bff;
       border: 2px solid white;
     }
     .activity-header {
@@ -104,12 +104,12 @@
       margin: 0;
     }
     .activity-user {
-      color: #fd550dff;
+      color: #35a52bff;
       font-weight: 500;
     }
 
     #history{
-      background-color: #fd550dff;
+      background-color: #35a52bff;
     }
 
     
@@ -168,7 +168,7 @@
 
       <div class="text" id="text">
         <h6>ADMIN</h6>
-        <p>Institute Email</p>
+        <p>hod.cseecb@gmail.com</p>
       </div>
 
       <!-- Left side bar accordian -->
@@ -448,7 +448,8 @@
                           </button>
                         </li>
                         <li>
-<button class="dropdown-item open-batch-modal" data-student-id="{{ $studentId }}">Batch Update</button>                        <li>
+<button class="dropdown-item open-batch-modal" data-student-id="{{ $studentId }}">Batch Update</button> 
+                       <li>
                           <!-- <button class="dropdown-item" type="button" data-bs-toggle="modal"
                             data-bs-target="#shiftModal{{ $studentId }}">
                             Shift Update
@@ -508,7 +509,7 @@
       <div class="modal-dialog">
         <form method="POST" action="{{ route('smstudents.updatePassword', $studentId) }}" class="modal-content">
           @csrf
-          <div class="modal-header">
+          <div class="modal-header" style="background-color: #35a52bff; color: #fff;">
             <h5 class="modal-title">Update Password</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
@@ -524,7 +525,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Update Password</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #35a52bff; color: #fff; border-color: #35a52bff;">Update Password</button>
           </div>
         </form>
       </div>
@@ -543,9 +544,9 @@
     <form method="POST" action="{{ route('smstudents.updateBatch', $studentId) }}" class="modal-content">
       @csrf
       
-      <div class="modal-header" style="background: linear-gradient(135deg, #fd550dff 0%, #ff7d3d 100%);">
+      <div class="modal-header" style="background: linear-gradient(135deg, #35a52bff 0%, #4A7C2C 100%);">
         <h5 class="modal-title text-white">
-          <i class="fas fa-user-group me-2"></i>Update Batch
+          Update Batch
         </h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
@@ -602,8 +603,8 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           <i class="fas fa-times me-2"></i>Cancel
         </button>
-        <button type="submit" class="btn btn-primary">
-          <i class="fas fa-save me-2"></i>Update Batch
+        <button type="submit" class="btn btn-primary" style="background-color: #35a52bff; color: #fff; border-color: #35a52bff;">
+         Update Batch
         </button>
       </div>
     </form>
@@ -615,8 +616,8 @@
   <div class="modal-dialog">
     <form method="POST" id="shiftForm" class="modal-content">
       @csrf
-      <div class="modal-header">
-        <h5 class="modal-title">Update Shift</h5>
+      <div class="modal-header" style="background: linear-gradient(135deg, #35a52bff 0%, #4A7C2C 100%); color: #fff;">
+        <h5 class="modal-title" >Update Shift</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
@@ -637,7 +638,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Update Shift</button>
+        <button type="submit" class="btn btn-primary" style="background-color: #35a52bff; color: #fff; border-color: #35a52bff;">
+           Update Batch
+        </button>
       </div>
     </form>
   </div>
@@ -647,7 +650,7 @@
 <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header" style="background-color: #e15914ff; color: white;">
+      <div class="modal-header" style="background: linear-gradient(135deg, #35a52bff 0%, #4A7C2C 100%); color: white;">
         <h5 class="modal-title" id="historyModalLabel">
           <i class="fa-solid fa-clock-rotate-left me-2"></i>Activity
         </h5>
