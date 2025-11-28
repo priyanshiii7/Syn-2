@@ -1,4 +1,4 @@
-// Complete Calendar Module - FIXED: Timezone & Event Loading Issues
+// Calendar Module - Complete Fixed Version
 (function() {
     'use strict';
 
@@ -30,7 +30,6 @@
 
         let isCollapsed = false;
 
-        // Set initial styles
         sidebar.style.transition = 'width 0.3s ease-in-out';
         sidebar.style.width = '300px';
         sidebar.style.flexShrink = '0';
@@ -40,28 +39,22 @@
             calendarContainer.style.flex = '1';
         }
 
-        // Toggle button click handler
         toggleBtn.addEventListener('click', function() {
             isCollapsed = !isCollapsed;
 
             if (isCollapsed) {
-                // COLLAPSE
                 sidebar.style.width = '42px';
                 if (text) text.style.display = 'none';
             } else {
-                // EXPAND
                 sidebar.style.width = '300px';
                 if (text) text.style.display = 'block';
             }
 
-            // Resize calendar after transition
             setTimeout(() => {
                 if (calendar && typeof calendar.updateSize === 'function') {
                     calendar.updateSize();
                 }
             }, 350);
-
-            console.log('Sidebar toggled:', isCollapsed ? 'collapsed' : 'expanded');
         });
     }
 
@@ -71,7 +64,7 @@
     function initializeCalendar() {
         const calendarEl = document.getElementById('calendar');
         if (!calendarEl || typeof FullCalendar === 'undefined') {
-            console.warn('Calendar element or FullCalendar library not found');
+            console.error('Calendar element or FullCalendar library not found');
             return;
         }
 
@@ -82,89 +75,61 @@
                 center: 'title', 
                 right: 'dayGridMonth,dayGridWeek' 
             },
-            timeZone: 'local', // FIXED: Use local timezone
-            events: loadEvents,
-            eventClick: info => {
-                if (confirm('Delete this event?')) {
-                    deleteEvent(info.event);
+            timeZone: 'local',
+            
+            // Load events from server
+            events: function(info, successCallback, failureCallback) {
+                fetch('/calendar/events', { 
+                    method: 'GET',
+                    headers: { 
+                        'X-CSRF-TOKEN': CSRF_TOKEN, 
+                        'Accept': 'application/json' 
+                    } 
+                })
+                .then(res => {
+                    if (!res.ok) throw new Error('Network response was not ok');
+                    return res.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        allEvents = data.data;
+                        successCallback(data.data);
+                        updateSidebarForCurrentMonth();
+                        console.log('✅ Loaded', data.data.length, 'events from server');
+                    } else {
+                        throw new Error(data.message || 'Failed to load events');
+                    }
+                })
+                .catch(err => {
+                    console.error('❌ Load events error:', err);
+                    showNotification('Failed to load calendar events', 'danger');
+                    failureCallback(err);
+                });
+            },
+            
+            eventClick: function(info) {
+                const eventType = info.event.extendedProps.type;
+                const eventId = info.event.id;
+                
+                if (confirm(`Delete this ${eventType}?`)) {
+                    if (eventType === 'holiday') {
+                        deleteHoliday(eventId);
+                    } else if (eventType === 'test') {
+                        deleteTest(eventId);
+                    }
                 }
             },
-            datesSet: updateSidebarForCurrentMonth,
+            
+            datesSet: function() {
+                updateSidebarForCurrentMonth();
+            },
+            
             height: 'auto',
             themeSystem: 'standard'
         });
 
         calendar.render();
-        
-        // Expose globally for resize triggers
         window.calendar = calendar;
-    }
-
-    /**
-     * NORMALIZE DATE TO LOCAL TIMEZONE (fixes date shifting)
-     * Ensures dates are treated as local, not UTC
-     */
-    function normalizeDateString(dateStr) {
-        if (!dateStr) return dateStr;
-        
-        // If it's already in YYYY-MM-DD format, append local time
-        if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
-            return dateStr + 'T00:00:00';
-        }
-        
-        return dateStr;
-    }
-
-    /**
-     * LOAD EVENTS FROM SERVER
-     */
-    function loadEvents(info, successCallback, failureCallback) {
-        fetch('/calendar/events', { 
-            headers: { 
-                'X-CSRF-TOKEN': CSRF_TOKEN, 
-                'Accept': 'application/json' 
-            } 
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                // FIXED: Normalize all event dates and handle ID formats
-                const normalizedEvents = data.data.map(event => {
-                    // Handle both old and new ID formats
-                    let eventId = event.id;
-                    let eventType = event.type;
-                    
-                    // If ID has prefix format (holiday-123 or test-456), extract type and ID
-                    if (typeof eventId === 'string' && eventId.includes('-')) {
-                        const parts = eventId.split('-');
-                        if (parts.length >= 2 && (parts[0] === 'holiday' || parts[0] === 'test')) {
-                            eventType = parts[0];
-                            eventId = parts.slice(1).join('-'); // Handle IDs with multiple dashes
-                        }
-                    }
-                    
-                    return {
-                        ...event,
-                        id: eventId,
-                        type: eventType || event.type,
-                        start: normalizeDateString(event.start),
-                        backgroundColor: (eventType || event.type) === 'holiday' ? '#dc3545' : '#0d6efd'
-                    };
-                });
-                
-                allEvents = normalizedEvents;
-                successCallback(normalizedEvents);
-                updateSidebarForCurrentMonth();
-                
-                console.log('Loaded events:', normalizedEvents.length);
-            } else {
-                failureCallback(data.message || 'Failed to load events');
-            }
-        })
-        .catch(err => {
-            console.error('Load events error:', err);
-            failureCallback(err);
-        });
     }
 
     /**
@@ -174,17 +139,24 @@
         // Modal buttons
         const addHolidayBtn = document.getElementById('addHolidayBtn');
         const addTestBtn = document.getElementById('addTestBtn');
+        const markSundayBtn = document.getElementById('markAllSundayBtn');
 
         if (addHolidayBtn) {
             addHolidayBtn.addEventListener('click', () => {
-                new bootstrap.Modal(document.getElementById('addHolidayModal')).show();
+                const modal = new bootstrap.Modal(document.getElementById('addHolidayModal'));
+                modal.show();
             });
         }
 
         if (addTestBtn) {
             addTestBtn.addEventListener('click', () => {
-                new bootstrap.Modal(document.getElementById('addTestModal')).show();
+                const modal = new bootstrap.Modal(document.getElementById('addTestModal'));
+                modal.show();
             });
+        }
+
+        if (markSundayBtn) {
+            markSundayBtn.addEventListener('click', markAllSundays);
         }
 
         // Form submissions
@@ -196,12 +168,6 @@
         const testForm = document.getElementById('testForm');
         if (testForm) {
             testForm.addEventListener('submit', e => handleFormSubmit(e, 'test'));
-        }
-
-        // Mark all Sundays
-        const markSundayBtn = document.getElementById('markAllSundayBtn');
-        if (markSundayBtn) {
-            markSundayBtn.addEventListener('click', markAllSundays);
         }
     }
 
@@ -240,31 +206,119 @@
                 showNotification(`${capitalize(type)} added successfully`, 'success');
                 
                 // Close modal
-                const modal = bootstrap.Modal.getInstance(form.closest('.modal'));
+                const modalEl = form.closest('.modal');
+                const modal = bootstrap.Modal.getInstance(modalEl);
                 if (modal) modal.hide();
                 form.reset();
                 
-                // FIXED: Add event with normalized date
-                const newEvent = {
-                    id: res.data?.id || `temp-${Date.now()}`,
-                    title: data.description,
-                    start: normalizeDateString(data.date),
-                    allDay: true,
-                    type: type,
-                    backgroundColor: type === 'holiday' ? '#dc3545' : '#0d6efd'
-                };
-                
-                calendar.addEvent(newEvent);
-                allEvents.push(newEvent);
-                updateSidebarForCurrentMonth();
+                // Refresh calendar
+                refreshCalendar();
             } else {
                 showNotification(res.message || `Failed to add ${type}`, 'danger');
             }
         })
         .catch(err => { 
-            console.error(err); 
+            console.error('Submit error:', err); 
             showNotification(`Error adding ${type}`, 'danger'); 
         });
+    }
+
+    /**
+     * DELETE HOLIDAY
+     */
+    function deleteHoliday(id) {
+        fetch(`/calendar/holidays/${id}`, { 
+            method: 'DELETE', 
+            headers: { 
+                'X-CSRF-TOKEN': CSRF_TOKEN, 
+                'Accept': 'application/json' 
+            } 
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                showNotification('Holiday deleted successfully', 'success');
+                refreshCalendar();
+            } else {
+                showNotification(data.message || 'Failed to delete holiday', 'danger');
+            }
+        })
+        .catch(err => { 
+            console.error('Delete error:', err); 
+            showNotification('Error deleting holiday', 'danger'); 
+        });
+    }
+
+    /**
+     * DELETE TEST
+     */
+    function deleteTest(id) {
+        fetch(`/calendar/tests/${id}`, { 
+            method: 'DELETE', 
+            headers: { 
+                'X-CSRF-TOKEN': CSRF_TOKEN, 
+                'Accept': 'application/json' 
+            } 
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                showNotification('Test deleted successfully', 'success');
+                refreshCalendar();
+            } else {
+                showNotification(data.message || 'Failed to delete test', 'danger');
+            }
+        })
+        .catch(err => { 
+            console.error('Delete error:', err); 
+            showNotification('Error deleting test', 'danger'); 
+        });
+    }
+
+    /**
+     * MARK ALL SUNDAYS AS HOLIDAYS
+     */
+    function markAllSundays() {
+        if (!calendar) return;
+
+        const currentDate = calendar.getDate();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth() + 1; // JavaScript months are 0-indexed
+
+        showNotification('Marking all Sundays as holidays...', 'info');
+
+        fetch('/calendar/mark-sundays', {
+            method: 'POST',
+            headers: { 
+                'X-CSRF-TOKEN': CSRF_TOKEN, 
+                'Content-Type': 'application/json', 
+                'Accept': 'application/json' 
+            },
+            body: JSON.stringify({ year, month })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                showNotification(data.message, 'success');
+                refreshCalendar();
+            } else {
+                showNotification(data.message || 'Failed to mark Sundays', 'danger');
+            }
+        })
+        .catch(err => { 
+            console.error('Mark Sundays error:', err); 
+            showNotification('Error marking Sundays', 'danger'); 
+        });
+    }
+
+    /**
+     * REFRESH CALENDAR EVENTS
+     */
+    function refreshCalendar() {
+        if (calendar && typeof calendar.refetchEvents === 'function') {
+            calendar.refetchEvents();
+            console.log('🔄 Calendar refreshed');
+        }
     }
 
     /**
@@ -286,18 +340,6 @@
     }
 
     /**
-     * COMPARE DATES (ignoring time component)
-     */
-    function isSameDate(date1, date2) {
-        const d1 = new Date(date1);
-        const d2 = new Date(date2);
-        
-        return d1.getFullYear() === d2.getFullYear() &&
-               d1.getMonth() === d2.getMonth() &&
-               d1.getDate() === d2.getDate();
-    }
-
-    /**
      * CHECK IF DATE IS IN RANGE
      */
     function isDateInRange(dateStr, startDate, endDate) {
@@ -305,7 +347,6 @@
         const start = new Date(startDate);
         const end = new Date(endDate);
         
-        // Set all times to midnight for fair comparison
         eventDate.setHours(0, 0, 0, 0);
         start.setHours(0, 0, 0, 0);
         end.setHours(0, 0, 0, 0);
@@ -322,7 +363,6 @@
 
         const { startDate, endDate } = range;
 
-        // FIXED: Filter using proper date comparison
         const holidays = allEvents
             .filter(e => e.type === 'holiday' && isDateInRange(e.start, startDate, endDate))
             .sort((a, b) => new Date(a.start) - new Date(b.start));
@@ -333,8 +373,6 @@
 
         renderList('holiday', holidays);
         renderList('test', tests);
-        
-        console.log(`Sidebar updated: ${holidays.length} holidays, ${tests.length} tests`);
     }
 
     /**
@@ -356,7 +394,7 @@
                     <div class="list-item-desc">${item.title}</div>
                 </div>
                 <div class="list-item-actions">
-                    <button class="btn-action btn-delete" onclick="window.delete${capitalize(type)}('${item.id}')">
+                    <button class="btn-action btn-delete" onclick="window.handleDelete${capitalize(type)}('${item.id}')">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>
@@ -365,112 +403,19 @@
     }
 
     /**
-     * DELETE EVENT FUNCTIONS
+     * EXPOSE DELETE FUNCTIONS GLOBALLY
      */
-    ['holiday', 'test'].forEach(type => {
-        window['delete' + capitalize(type)] = function(id) {
-            if (!confirm(`Are you sure you want to delete this ${type}?`)) return;
-            
-            fetch(`/calendar/${type}s/${id}`, { 
-                method: 'DELETE', 
-                headers: { 
-                    'X-CSRF-TOKEN': CSRF_TOKEN, 
-                    'Accept': 'application/json' 
-                } 
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    showNotification(`${capitalize(type)} deleted successfully`, 'success');
-                    
-                    // FIXED: Find event by ID (handle string/number comparison)
-                    const event = calendar.getEventById(String(id));
-                    if (event) event.remove();
-                    
-                    allEvents = allEvents.filter(e => String(e.id) !== String(id));
-                    updateSidebarForCurrentMonth();
-                } else {
-                    showNotification(data.message || `Failed to delete ${type}`, 'danger');
-                }
-            })
-            .catch(err => { 
-                console.error(err); 
-                showNotification(`Error deleting ${type}`, 'danger'); 
-            });
-        };
-    });
+    window.handleDeleteHoliday = function(id) {
+        if (confirm('Are you sure you want to delete this holiday?')) {
+            deleteHoliday(id);
+        }
+    };
 
-    /**
-     * DELETE EVENT FROM CALENDAR CLICK
-     */
-    function deleteEvent(event) {
-        const type = event.extendedProps.type;
-        const id = event.id;
-        if (type === 'holiday') window.deleteHoliday(id);
-        else if (type === 'test') window.deleteTest(id);
-    }
-
-    /**
-     * MARK ALL SUNDAYS AS HOLIDAYS
-     */
-    function markAllSundays() {
-        if (!calendar) return;
-
-        const range = getCurrentMonthRange();
-        if (!range) return;
-
-        const { year, month, startDate, endDate } = range;
-
-        showNotification('Marking all Sundays as holidays...', 'info');
-
-        fetch('/calendar/mark-sundays', {
-            method: 'POST',
-            headers: { 
-                'X-CSRF-TOKEN': CSRF_TOKEN, 
-                'Content-Type': 'application/json', 
-                'Accept': 'application/json' 
-            },
-            body: JSON.stringify({ year, month: month + 1 })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (!data.success) {
-                return showNotification(data.message || 'Failed to mark Sundays', 'danger');
-            }
-
-            showNotification('All Sundays marked as holidays', 'success');
-
-            // FIXED: Add Sunday events with normalized dates
-            const sundayEvents = [];
-            const d = new Date(startDate);
-            while (d <= endDate) {
-                if (d.getDay() === 0) {
-                    const dateStr = d.toISOString().split('T')[0];
-                    const eventId = data.ids?.[dateStr] || `sunday-${d.getTime()}`;
-                    
-                    const sundayEvent = {
-                        id: eventId,
-                        title: 'Sunday Holiday',
-                        start: normalizeDateString(dateStr),
-                        allDay: true,
-                        type: 'holiday',
-                        backgroundColor: '#dc3545'
-                    };
-                    
-                    calendar.addEvent(sundayEvent);
-                    sundayEvents.push(sundayEvent);
-                }
-                d.setDate(d.getDate() + 1);
-            }
-
-            allEvents.push(...sundayEvents);
-            updateSidebarForCurrentMonth();
-        })
-        .catch(err => { 
-            console.error(err); 
-            showNotification('Error marking Sundays', 'danger'); 
-        });
-    }
+    window.handleDeleteTest = function(id) {
+        if (confirm('Are you sure you want to delete this test?')) {
+            deleteTest(id);
+        }
+    };
 
     /**
      * FORMAT DATE FOR DISPLAY
@@ -488,15 +433,28 @@
      * SHOW NOTIFICATION
      */
     function showNotification(message, type = 'info') {
-        const container = document.querySelector('.flash-container');
-        if (!container) return;
+        let container = document.querySelector('.flash-container');
+        
+        if (!container) {
+            container = document.createElement('div');
+            container.className = 'flash-container position-fixed top-0 end-0 p-3';
+            container.style.zIndex = '9999';
+            document.body.appendChild(container);
+        }
 
         const alert = document.createElement('div');
         alert.className = `alert alert-${type} alert-dismissible fade show`;
-        alert.innerHTML = `${message}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>`;
+        alert.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
         container.appendChild(alert);
         
-        setTimeout(() => alert.remove(), 5000);
+        setTimeout(() => {
+            alert.style.transition = 'opacity 0.5s ease-out';
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 500);
+        }, 5000);
     }
 
     /**
@@ -531,5 +489,8 @@
             }
         }, 250);
     });
+
+    // Expose refresh function globally
+    window.refreshCalendar = refreshCalendar;
 
 })();

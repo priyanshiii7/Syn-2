@@ -278,14 +278,13 @@
 }
 
 #table thead th {
-    background-color: transparent !important;
+    color: #1B3A0F !important;
     border: none !important;
-    border-bottom: 2px solid #e0e0e0 !important;
-    color: rgb(224, 83, 1) !important;
-    font-weight: 600 !important;
-    padding: 12px 10px !important;
-    font-size: 13px !important;
-    text-align: left !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    padding: 16px 12px !important;
 }
 
 #table tbody td {
@@ -999,4 +998,136 @@ table .btn-secondary:hover {
         flex-wrap: wrap;
         justify-content: center;
     }
+}
+
+/* ----------------------------------------
+   BROCCOLI THEME — GREEN OVERRIDES
+   Add this AFTER your main CSS
+-----------------------------------------*/
+
+/* === Primary Green Theme Colors === */
+:root {
+    --broccoli-green: #1c8f3a;
+    --broccoli-dark: #136d2c;
+    --broccoli-light: #e8f7ec;
+    --broccoli-accent: #2fbf5b;
+}
+
+/* === Header Icons === */
+.fa-bell,
+.fa-user {
+    color: var(--broccoli-green) !important;
+}
+
+/* === Session select === */
+.pfp select {
+    border: 0.5px solid var(--broccoli-green) !important;
+}
+
+/* === Sidebar hover === */
+.menu li:hover {
+    background-color: var(--broccoli-light) !important;
+}
+
+/* === Headings === */
+.right h1,
+.top h4,
+#one {
+    color: var(--broccoli-dark) !important;
+}
+
+/* === Buttons === */
+#add {
+    background-color: var(--broccoli-green) !important;
+}
+
+#submit {
+    border-color: var(--broccoli-green) !important;
+}
+
+#up {
+    background-color: var(--broccoli-dark) !important;
+}
+
+/* Excel / Upload Buttons */
+#xlsx {
+    background-color: var(--broccoli-green) !important;
+}
+
+#table thead th {
+    color: #1B3A0F !important;
+    border: none !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    padding: 16px 12px !important;
+}
+
+/* === Pagination === */
+.page-link:hover {
+    color: var(--broccoli-green) !important;
+    border-color: var(--broccoli-green) !important;
+}
+
+.page-item.active .page-link {
+    background-color: var(--broccoli-green) !important;
+    border-color: var(--broccoli-green) !important;
+}
+
+/* === Search bar === */
+.search-holder {
+    border: 1px solid var(--broccoli-green) !important;
+}
+
+/* === Modal header === */
+.modal-header {
+    border-bottom: 2px solid var(--broccoli-green) !important;
+    background-color: var(--broccoli-light) !important;
+}
+
+.modal-title {
+    color: var(--broccoli-dark) !important;
+}
+
+/* === Form section titles === */
+.modal-body p,
+.form-section-view {
+    color: var(--broccoli-green) !important;
+    border-bottom: 2px solid var(--broccoli-green) !important;
+}
+
+/* === Focused Inputs === */
+.form-control:focus {
+    border-color: var(--broccoli-green) !important;
+    box-shadow: 0 0 0 0.2rem rgba(28, 143, 58, 0.25) !important;
+}
+
+/* === Installment Table Header === */
+.view-installment-table th {
+    background-color: var(--broccoli-green) !important;
+}
+
+/* === View Fee Section Heading === */
+.view-fee-section h6 {
+    color: var(--broccoli-dark) !important;
+}
+
+/* === Light background containers === */
+.right {
+    background-color: #f4fdf6 !important; /* light broccoli background */
+}
+
+.whole {
+    border-color: #ccebd5 !important;
+}
+
+/* === Highlight rows on hover === */
+#table tbody tr:hover {
+    background-color: var(--broccoli-light) !important;
+}
+
+/* === Dropdown icons hover === */
+.btn-secondary:hover {
+    color: var(--broccoli-green) !important;
 }
